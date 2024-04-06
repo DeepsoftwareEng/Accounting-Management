@@ -1,0 +1,196 @@
+﻿<Page x:Class="Accounting_Management.View.StaffMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Accounting_Management.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="1600"
+      Background="White" 
+      Title="StaffMenu">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.2*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Frame Grid.Column="1"
+               NavigationUIVisibility="Hidden"
+               x:Name="FunctionUI"/>
+        <Grid Background="#D1E5EB">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="105"/>
+                <RowDefinition Height="3"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="38"/>
+                <RowDefinition Height="14"/>
+                <RowDefinition Height="38"/>
+                <RowDefinition Height="14"/>
+                <RowDefinition Height="38"/>
+                <RowDefinition Height="14"/>
+                <RowDefinition Height="38"/>
+                <RowDefinition Height="14"/>
+                <RowDefinition Height="38"/>
+                <RowDefinition Height="14"/>
+                <RowDefinition Height="38"/>
+                <RowDefinition Height="14"/>
+                <RowDefinition Height="38"/>
+                <RowDefinition Height="14"/>
+                <RowDefinition Height="38"/>
+                <RowDefinition Height="278"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Viewbox>
+                <TextBlock Margin="10 10 10 10"
+                           TextWrapping="Wrap"
+                           Text="Accounting Management"
+                           FontSize="32"
+                           FontWeight="Medium"/>
+            </Viewbox>
+            <Viewbox Grid.Row="1" >
+                <Line X1="0"  Y1="0"
+                X2="200" Y2="0"
+                Margin="10 0 10 0"
+                StrokeThickness="1"
+                Stroke="Black"
+                HorizontalAlignment="Center"/>
+            </Viewbox>
+            <Grid Grid.Row="3" Margin="10 0 10  0"
+                  MouseLeftButtonDown="DasboardClick">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="/Assets/DashBoardicon.png"
+                       />
+                <Viewbox Grid.Column="1"
+                         HorizontalAlignment="Left">
+                    <TextBlock Text="Tổng hợp"
+                               FontWeight="Medium"
+                               FontSize="20"/>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="5" Margin="10 0 10  0"
+                   MouseLeftButtonDown="CustomerClick">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Image Margin="2 2 2 2" Source="/Assets/CustomerIcon.png"/>
+                <Viewbox Grid.Column="1"
+                         HorizontalAlignment="Left">
+                    <TextBlock Text="Khách hàng"
+                   FontWeight="Medium"
+                   FontSize="20"/>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="7" Margin="10 0 10  0"
+                   MouseLeftButtonDown="ProductClick">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="/Assets/ProductsIcon.png"/>
+                <Viewbox Grid.Column="1"
+                         HorizontalAlignment="Left">
+                    <TextBlock Text="Hàng hóa"
+                   FontWeight="Medium"
+                   FontSize="20"/>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="9" Margin="10 0 10  0"
+                   MouseLeftButtonDown="NoteClick">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="/Assets/NoteIcon.png"/>
+                <Viewbox Grid.Column="1"
+                         HorizontalAlignment="Left">
+                    <TextBlock Text="Phiếu nhập/ xuất"
+                   FontWeight="Medium"
+                   FontSize="20"/>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="11" Margin="10 0 10  0"
+                   MouseLeftButtonDown="InvoiceClick">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="/Assets/InvoiceIcon.png"/>
+                <Viewbox Grid.Column="1"
+                         HorizontalAlignment="Left">
+                    <TextBlock Text="Hóa đơn"
+                   FontWeight="Medium"
+                   FontSize="20"/>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="13" Margin="10 0 10  0"
+                   MouseLeftButtonDown="StaffClick">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="/Assets/StaffIcon.png"/>
+                <Viewbox Grid.Column="1"
+                         HorizontalAlignment="Left">
+                    <TextBlock Text="Nhân viên"
+                   FontWeight="Medium"
+                   FontSize="20"/>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="15" Margin="10 0 10  0"
+                   MouseLeftButtonDown="AccountSystemClick">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="/Assets/AccountSystemIcon.png"/>
+                <Viewbox Grid.Column="1"
+                         HorizontalAlignment="Left">
+                    <TextBlock Text="Hệ thống tài khoản"
+                   FontWeight="Medium"
+                   FontSize="20"/>
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="17" Margin="10 0 10  0"
+                   MouseLeftButtonDown="LogClick">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="/Assets/LogIcon.png"/>
+                <Viewbox Grid.Column="1"
+                         HorizontalAlignment="Left">
+                    <TextBlock Text="Nhật ký"
+                   FontWeight="Medium"
+                   FontSize="20"/>
+                </Viewbox>
+            </Grid>
+            <Viewbox Grid.Row="18"></Viewbox>
+            <Grid Grid.Row="19">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1"
+                        Content="Đăng xuất"
+                        FontWeight="Bold"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        Foreground="White"
+                        Background="#F65858"
+                        BorderThickness="0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="20"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
