@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Accounting_Management.View
 {
@@ -55,7 +56,7 @@ namespace Accounting_Management.View
         }
          private void LogClick(object sender, MouseButtonEventArgs e)
         {
-
+            FunctionUI.NavigationService.Navigate(new LogView());
         }
     }
 }
