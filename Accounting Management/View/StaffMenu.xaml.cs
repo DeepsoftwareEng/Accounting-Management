@@ -36,7 +36,7 @@ namespace Accounting_Management.View
         }
         private void ProductClick(object sender, MouseButtonEventArgs e)
         {
-
+            FunctionUI.NavigationService.Navigate(new ProductManage());
         }
         private void NoteClick(object sender, MouseButtonEventArgs e)
         {
