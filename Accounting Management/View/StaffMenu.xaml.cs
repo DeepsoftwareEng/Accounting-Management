@@ -44,7 +44,7 @@ namespace Accounting_Management.View
         }
         private void InvoiceClick(object sender, MouseButtonEventArgs e)
         {
-
+            FunctionUI.NavigationService.Navigate(new InvoiceManage());
         }
         private void StaffClick(object sender, MouseButtonEventArgs e)
         {
