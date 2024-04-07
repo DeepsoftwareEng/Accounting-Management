@@ -48,7 +48,7 @@ namespace Accounting_Management.View
         }
         private void StaffClick(object sender, MouseButtonEventArgs e)
         {
-
+            FunctionUI.NavigationService.Navigate(new StaffManange());
         }
         private void AccountSystemClick(object sender, MouseButtonEventArgs e)
         {

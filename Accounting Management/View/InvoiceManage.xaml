@@ -74,6 +74,7 @@
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
@@ -81,6 +82,7 @@
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
@@ -88,6 +90,7 @@
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
@@ -95,6 +98,7 @@
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridCheckBoxColumn>
@@ -102,6 +106,7 @@
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridCheckBoxColumn>
@@ -109,6 +114,7 @@
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridCheckBoxColumn>
@@ -116,6 +122,7 @@
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridCheckBoxColumn>
@@ -123,6 +130,7 @@
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridCheckBoxColumn>
@@ -130,6 +138,7 @@
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridCheckBoxColumn>
