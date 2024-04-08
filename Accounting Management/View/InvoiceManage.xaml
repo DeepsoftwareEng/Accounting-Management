@@ -26,12 +26,12 @@
         <Grid  Grid.Row="1"
        Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="957"/>
-                <ColumnDefinition Width="36"/>
-                <ColumnDefinition Width="120"/>
-                <ColumnDefinition Width="36"/>
-                <ColumnDefinition Width="120"/>
-                <ColumnDefinition Width="36"/>
+                <ColumnDefinition Width="26.6*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3.3*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3.3*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBox Margin="10 0 0 0"
                  Background="#D9D9D9">
