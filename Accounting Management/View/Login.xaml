@@ -148,7 +148,8 @@
                            Foreground="#4A4EB9"
                            FontWeight="Medium"
                            TextDecorations="Underline"
-                           TextAlignment="Center"/>
+                           TextAlignment="Center"
+                           MouseLeftButtonDown="RecoveryPassword_Click"/>
             </Viewbox>
         </Grid>
     </Grid>

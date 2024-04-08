@@ -16,22 +16,18 @@ using System.Windows.Shapes;
 namespace Accounting_Management.View
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for RecoveryPassword.xaml
     /// </summary>
-    public partial class Login : Page
+    public partial class RecoveryPassword : Page
     {
-        public Login()
+        public RecoveryPassword()
         {
             InitializeComponent();
         }
 
-        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        private void Viewbox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            this.NavigationService.Navigate(new StaffMenu());
-        }
-        private void RecoveryPassword_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new RecoveryPassword());
+            this.NavigationService.Navigate(new Login());
         }
     }
 }
