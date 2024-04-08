@@ -40,7 +40,7 @@ namespace Accounting_Management.View
         }
         private void NoteClick(object sender, MouseButtonEventArgs e)
         {
-
+            FunctionUI.NavigationService.Navigate(new NoteManage());
         }
         private void InvoiceClick(object sender, MouseButtonEventArgs e)
         {
@@ -52,7 +52,7 @@ namespace Accounting_Management.View
         }
         private void AccountSystemClick(object sender, MouseButtonEventArgs e)
         {
-
+            FunctionUI.NavigationService.Navigate(new BankAccoutManage());
         }
          private void LogClick(object sender, MouseButtonEventArgs e)
         {
