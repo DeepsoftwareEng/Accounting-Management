@@ -28,7 +28,7 @@ namespace Accounting_Management.View
 
         private void DasboardClick(object sender, MouseButtonEventArgs e)
         {
-
+            FunctionUI.NavigationService.Navigate(new Dashboard());
         }
         private void CustomerClick(object sender, MouseButtonEventArgs e)
         {
