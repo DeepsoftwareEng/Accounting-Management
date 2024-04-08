@@ -100,7 +100,8 @@
                     HorizontalContentAlignment="Center"
                     Foreground="White"
                     Background="#F65858"
-                    BorderThickness="0">
+                    BorderThickness="0"
+                    Click="Logout">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="20"/>

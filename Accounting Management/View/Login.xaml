@@ -79,7 +79,8 @@
             </Viewbox>
             <TextBox Grid.Row="4"
                      Background="#D9D9D9"
-                     Padding="4 4 0 0">
+                     Padding="4 4 0 0"
+                     x:Name="UserNameTxb">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -94,7 +95,8 @@
             <PasswordBox Grid.Row="7"
                          Template="{StaticResource CustomPasswordBoxTemplate}"
                      Background="#D9D9D9"
-                     Padding="4 4 0 0">
+                     Padding="4 4 0 0"
+                     x:Name="PasswordTxb">
                 <PasswordBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>

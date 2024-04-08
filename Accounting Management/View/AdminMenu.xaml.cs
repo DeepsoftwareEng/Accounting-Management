@@ -27,12 +27,17 @@ namespace Accounting_Management.View
 
         private void AccountManage(object sender, MouseButtonEventArgs e)
         {
-
+            FunctionUI.NavigationService.Navigate(new AccountManage());
         }
 
         private void AccountantManage(object sender, MouseButtonEventArgs e)
         {
+            FunctionUI.NavigationService.Navigate(new AccountantManage());
+        }
 
+        private void Logout(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Login());
         }
     }
 }

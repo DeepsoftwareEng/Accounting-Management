@@ -16,25 +16,27 @@ using System.Windows.Shapes;
 namespace Accounting_Management.View
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for AccountManage.xaml
     /// </summary>
-    public partial class Login : Page
+    public partial class AccountManage : Page
     {
-        public Login()
+        public AccountManage()
         {
             InitializeComponent();
         }
 
-        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        private void AddAccount(object sender, RoutedEventArgs e)
         {
-            if(UserNameTxb.Text == "admin")
-                this.NavigationService.Navigate(new AdminMenu());
-            else
-                this.NavigationService.Navigate(new StaffMenu());
+            Drawer.IsEnabled = true;
+            Drawer.Opacity = 1;
+            Drawer.Visibility = Visibility.Visible;
+            Drawer.Back.Click += Back_Click;
         }
-        private void RecoveryPassword_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new RecoveryPassword());
+            Drawer.IsEnabled = false;
+            Drawer.Visibility = Visibility.Hidden;
+            Drawer.Opacity = 0;
         }
     }
 }

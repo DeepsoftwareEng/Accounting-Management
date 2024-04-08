@@ -58,5 +58,10 @@ namespace Accounting_Management.View
         {
             FunctionUI.NavigationService.Navigate(new LogView());
         }
+
+        private void Logout(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Login());
+        }
     }
 }
