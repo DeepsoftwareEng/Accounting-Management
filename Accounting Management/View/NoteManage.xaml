@@ -45,8 +45,10 @@
                      Background="#47A7FF"
                      Foreground="White"
                      FontWeight="Bold"
-                     Content="Tìm"
                      FontSize="20">
+                <Viewbox Margin="5 5 5 5">
+                    <TextBlock Text="Tìm"></TextBlock>
+                </Viewbox>
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -57,9 +59,11 @@
                       Background="#50108F"
                       Foreground="White"
                       FontWeight="Bold"
-                      Content="Thêm"
                       FontSize="20"
                       Click="AddNote_Click">
+                <Viewbox Margin="5 5 5 5">
+                    <TextBlock Text="Thêm"></TextBlock>
+                </Viewbox>
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>

@@ -72,12 +72,14 @@
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="1"
                     Background="Red"
-                    Content="Thoát"
                     FontWeight="Bold"
                     Foreground="White"
                     FontSize="20"
                     BorderThickness="0"
                     x:Name="Back">
+                    <Viewbox>
+                        <TextBlock Text="Thoát"></TextBlock>
+                    </Viewbox>
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -86,11 +88,13 @@
                 </Button>
                 <Button Grid.Column="4"
                     Background="#0CC5FF"
-                    Content="Lưu"
                     FontWeight="Bold"
                     Foreground="White"
                     FontSize="20"
                     BorderThickness="0">
+                    <Viewbox>
+                        <TextBlock Text="Lưu"></TextBlock>
+                    </Viewbox>
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10"/>

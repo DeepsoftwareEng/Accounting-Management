@@ -177,7 +177,6 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="1"
-                        Content="Đăng xuất"
                         FontWeight="Bold"
                         VerticalContentAlignment="Center"
                         HorizontalContentAlignment="Center"
@@ -185,6 +184,9 @@
                         Background="#F65858"
                         BorderThickness="0"
                         Click="Logout">
+                    <Viewbox Margin="10 10 10 10">
+                        <TextBlock Text="Đăng xuất"></TextBlock>
+                    </Viewbox>
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="20"/>

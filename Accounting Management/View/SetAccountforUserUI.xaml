@@ -75,13 +75,15 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="1"
-                        Content="Thoát"
                         Foreground="White"
                         Background="Red"
                         FontWeight="Bold"
                         BorderThickness="0"
                         FontSize="20"
                         x:Name="Back">
+                    <Viewbox Margin="5 5 5 5">
+                        <TextBlock Text="Thoát"></TextBlock>
+                    </Viewbox>
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -92,9 +94,11 @@
                          Foreground="White"
                          Background="#0CC5FF"
                          FontWeight="Bold"
-                         Content="Lưu"
                          BorderThickness="0"
                          FontSize="20">
+                    <Viewbox Margin="5 5 5 5">
+                        <TextBlock Text="Lưu"></TextBlock>
+                    </Viewbox>
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10"/>
