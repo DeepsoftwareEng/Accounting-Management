@@ -45,13 +45,15 @@
                         </Grid.ColumnDefinitions>
                         <Viewbox VerticalAlignment="Center">
                             <TextBlock FontWeight="Bold"
-                                       Text="1000K"/>
+                                       Text="1000K"
+                                       FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Viewbox>
                         <Viewbox Grid.Column="3"
                                  Margin="0 0 10 0"
                                  VerticalAlignment="Center">
                             <TextBlock Text="Lợi nhuận"
-                                       FontWeight="Bold"/>
+                                       FontWeight="Bold"
+                                       FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Viewbox>
                     </Grid>
                 </Border>
@@ -66,13 +68,15 @@
                         </Grid.ColumnDefinitions>
                         <Viewbox VerticalAlignment="Center">
                             <TextBlock FontWeight="Bold"
-                                       Text="250"/>
+                                       Text="250"
+                                       FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Viewbox>
                         <Viewbox Grid.Column="3"
                                  Margin="0 0 10 0"
                                  VerticalAlignment="Center">
                             <TextBlock Text="Khách hàng"
-                                       FontWeight="Bold"/>
+                                       FontWeight="Bold"
+                                       FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Viewbox>
                     </Grid>
                 </Border>
@@ -87,13 +91,15 @@
                         </Grid.ColumnDefinitions>
                         <Viewbox VerticalAlignment="Center">
                             <TextBlock FontWeight="Bold"
-                                       Text="2000K"/>
+                                       Text="2000K"
+                                       FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Viewbox>
                         <Viewbox Grid.Column="3"
                                  Margin="0 0 10 0"
                                  VerticalAlignment="Center">
                             <TextBlock Text="Chi tiêu"
-                                       FontWeight="Bold"/>
+                                       FontWeight="Bold"
+                                       FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Viewbox>
                     </Grid>
                 </Border>
@@ -122,69 +128,79 @@
                          Grid.Column="0"
                          HorizontalAlignment="Left">
                     <TextBlock Text="Lợi nhuận"
-                               FontWeight="Bold"/>
+                               FontWeight="Bold"
+                               FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                 </Viewbox>
                 <Viewbox Grid.Row="1"
                          Grid.Column="0"
                          HorizontalAlignment="Left">
                     <TextBlock Text="Trung bình: 1000K"
                                Margin="20 0 0 0"
-                               FontWeight="Bold"/>
+                               FontWeight="Bold"
+                               FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                 </Viewbox>
                 <Viewbox Grid.Row="2"
                          Grid.Column="0"
                          HorizontalAlignment="Left">
                     <TextBlock Text="Hiện tại: 300K"
                                Margin="20 0 0 0"
-                               FontWeight="Bold"/>
+                               FontWeight="Bold"
+                               FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                 </Viewbox>
                 <Viewbox Grid.Row="3"
                          Grid.Column="0"
                          HorizontalAlignment="Left">
                     <TextBlock Text="Tháng trước: 300k"
                                Margin="20 0 0 0"
-                               FontWeight="Bold"/>
+                               FontWeight="Bold"
+                               FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                 </Viewbox>
                 <Viewbox Grid.Row="4"
                          Grid.Column="0"
                          HorizontalAlignment="Left">
                     <TextBlock Text="Tăng trưởng: 30%"
                                Margin="20 0 0 0"
-                               FontWeight="Bold"/>
+                               FontWeight="Bold"
+                               FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                 </Viewbox>
                 <Viewbox Grid.Row="0"
                          Grid.Column="1"
                          HorizontalAlignment="Left">
                     <TextBlock Text="Chi tiêu"
-                               FontWeight="Bold"/>
+                               FontWeight="Bold"
+                               FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                 </Viewbox>
                 <Viewbox Grid.Row="1"
                          Grid.Column="1"
                          HorizontalAlignment="Left">
                     <TextBlock Text="Trung bình: 1000K"
                                Margin="20 0 0 0"
-                               FontWeight="Bold"/>
+                               FontWeight="Bold"
+                               FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                 </Viewbox>
                 <Viewbox Grid.Row="2"
                          Grid.Column="1"
                          HorizontalAlignment="Left">
                     <TextBlock Text="Hiện tại: 300K"
                                Margin="20 0 0 0"
-                               FontWeight="Bold"/>
+                               FontWeight="Bold"
+                               FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                 </Viewbox>
                 <Viewbox Grid.Row="3"
                          Grid.Column="1"
                          HorizontalAlignment="Left">
                     <TextBlock Text="Tháng trước: 200K"
                                Margin="20 0 0 0"
-                               FontWeight="Bold"/>
+                               FontWeight="Bold"
+                               FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                 </Viewbox>
                 <Viewbox Grid.Row="4"
                          Grid.Column="1"
                          HorizontalAlignment="Left">
                     <TextBlock Text="Hóa đơn tồn đọng: 30"
                                Margin="20 0 0 0"
-                               FontWeight="Bold"/>
+                               FontWeight="Bold"
+                               FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                 </Viewbox>
             </Grid>
             <Grid Grid.Row="7">

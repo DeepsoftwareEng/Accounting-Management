@@ -47,7 +47,8 @@
                      FontWeight="Bold"
                      FontSize="20">
                 <Viewbox Margin="5 5 5 5">
-                    <TextBlock Text="Tìm"></TextBlock>
+                    <TextBlock Text="Tìm"
+                               FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"></TextBlock>
                 </Viewbox>
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -62,7 +63,8 @@
                       FontSize="20"
                       Click="AddNote_Click">
                 <Viewbox Margin="5 5 5 5">
-                    <TextBlock Text="Thêm"></TextBlock>
+                    <TextBlock Text="Thêm"
+                               FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"></TextBlock>
                 </Viewbox>
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -79,6 +81,7 @@
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
                             <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="FontFamily" Value="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
@@ -87,6 +90,7 @@
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
                             <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="FontFamily" Value="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
@@ -95,6 +99,7 @@
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
                             <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="FontFamily" Value="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
@@ -103,6 +108,7 @@
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
                             <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="FontFamily" Value="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
@@ -111,6 +117,7 @@
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
                             <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="FontFamily" Value="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
@@ -119,6 +126,7 @@
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
                             <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="FontFamily" Value="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>

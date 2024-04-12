@@ -77,8 +77,10 @@
                     FontSize="20"
                     BorderThickness="0"
                     x:Name="Back">
-                    <Viewbox>
-                        <TextBlock Text="Thoát"></TextBlock>
+                    <Viewbox Margin="5 5 5 5">
+                        <TextBlock Text="Thoát"
+                                   FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"
+                                   ></TextBlock>
                     </Viewbox>
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
@@ -92,8 +94,10 @@
                     Foreground="White"
                     FontSize="20"
                     BorderThickness="0">
-                    <Viewbox>
-                        <TextBlock Text="Lưu"></TextBlock>
+                    <Viewbox Margin="5 5 5 5">
+                        <TextBlock Text="Lưu"
+                                   FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"
+                                   ></TextBlock>
                     </Viewbox>
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">

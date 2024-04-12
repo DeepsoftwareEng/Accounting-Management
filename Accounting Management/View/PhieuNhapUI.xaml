@@ -7,6 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1000"
              Background="White">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type UserControl}">
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -43,11 +48,13 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <Viewbox HorizontalAlignment="Left">
-                    <TextBlock Text="Đơn vị"/>
+                    <TextBlock Text="Đơn vị"
+                               />
                 </Viewbox>
                 <Viewbox HorizontalAlignment="Left"
                          Grid.Row="1">
-                    <TextBlock Text="Địa chỉ"/>
+                    <TextBlock Text="Địa chỉ"
+                               />
                 </Viewbox>
                 <Viewbox HorizontalAlignment="Left"
                          Grid.Row="2">

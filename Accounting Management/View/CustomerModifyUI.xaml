@@ -40,7 +40,8 @@
                     FontWeight="Bold"
                     Foreground="White">
                     <Viewbox Margin="5 5 5 5">
-                        <TextBlock Text="Thêm ảnh"></TextBlock>
+                        <TextBlock Text="Thêm ảnh"
+                                   FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"></TextBlock>
                     </Viewbox>
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
@@ -181,7 +182,8 @@
                     FontSize="20"
                     x:Name="Back">
                     <Viewbox Margin="5 5 5 5">
-                        <TextBlock Text="Thoát"></TextBlock>
+                        <TextBlock Text="Thoát"
+                                   FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"></TextBlock>
                     </Viewbox>
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
@@ -196,7 +198,8 @@
                     BorderThickness="0"
                     FontSize="20">
                     <Viewbox Margin="5 5 5 5">
-                        <TextBlock Text="Lưu"></TextBlock>
+                        <TextBlock Text="Lưu"
+                                   FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"></TextBlock>
                     </Viewbox>
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">

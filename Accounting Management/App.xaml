@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:Accounting_Management"
              Startup="Application_Startup">
     <Application.Resources>
-         
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="FontFamily" Value="/Assets/Font/Inter-VariableFont_slnt,wght.ttf" />
+        </Style>
     </Application.Resources>
 </Application>
