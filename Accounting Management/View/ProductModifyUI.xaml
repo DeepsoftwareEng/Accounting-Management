@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Accounting_Management.View"
              mc:Ignorable="d" 
-             d:DesignHeight="900" d:DesignWidth="1000"
+             d:DesignHeight="9" d:DesignWidth="10"
              Background="White">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -77,6 +77,7 @@
             </Viewbox>
             <TextBox Grid.Row="2"
              Background="#D9D9D9"
+                     Padding="0 5 0 0"
              Margin="5 0 5 0">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -92,6 +93,7 @@
             </Viewbox>
             <TextBox Grid.Row="4"
              Background="#D9D9D9"
+                     Padding="0 5 0 0"
              Margin="5 0 5 0">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -107,6 +109,7 @@
             </Viewbox>
             <TextBox Grid.Row="6"
              Background="#D9D9D9"
+                     Padding="0 5 0 0"
              Margin="5 0 5 0">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -123,6 +126,7 @@
             </Viewbox>
             <TextBox Grid.Row="8"
              Background="#D9D9D9"
+                     Padding="0 5 0 0"
              Margin="5 0 5 0">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}"> 
