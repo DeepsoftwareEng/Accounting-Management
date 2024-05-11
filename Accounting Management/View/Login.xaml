@@ -103,9 +103,12 @@
                     </Style>
                 </PasswordBox.Resources>
             </PasswordBox>
-            <CheckBox Grid.Row="9"
+            <Viewbox Grid.Row="9"
+                     HorizontalAlignment="Left">
+                <CheckBox 
                       Content="Ghi nhớ mật khẩu"
                       FontWeight="Medium"/>
+            </Viewbox>
             <Grid Grid.Row="11">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1.5*"/>
