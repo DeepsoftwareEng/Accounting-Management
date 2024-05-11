@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Accounting_Management.View"
              mc:Ignorable="d" 
-             d:DesignHeight="900" d:DesignWidth="1000"
+             d:DesignHeight="9" d:DesignWidth="10"
              Background="White">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -81,7 +81,8 @@
                      Grid.Column="1"
                      Background="#D9D9D9"
                      Margin="0 5 0 5"
-                     BorderThickness="0">
+                     BorderThickness="0"
+                         Padding="0 5 0 0">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -92,7 +93,8 @@
                      Grid.Column="1"
                      Background="#D9D9D9"
                      Margin="0 5 0 5"
-                     BorderThickness="0">
+                     BorderThickness="0"
+                         Padding="0 5 0 0">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -103,7 +105,8 @@
                      Grid.Column="1"
                      Background="#D9D9D9"
                      Margin="0 5 0 5"
-                     BorderThickness="0">
+                     BorderThickness="0"
+                         Padding="0 5 0 0">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -114,7 +117,8 @@
                      Grid.Column="1"
                      Background="#D9D9D9"
                      Margin="0 5 0 5"
-                     BorderThickness="0">
+                     BorderThickness="0"
+                         Padding="0 5 0 0">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -125,7 +129,8 @@
                      Grid.Column="1"
                      Background="#D9D9D9"
                      Margin="0 5 0 5"
-                     BorderThickness="0">
+                     BorderThickness="0"
+                         Padding="0 5 0 0">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -136,7 +141,8 @@
                      Grid.Column="1"
                      Background="#D9D9D9"
                      Margin="0 5 0 5"
-                     BorderThickness="0">
+                     BorderThickness="0"
+                         Padding="0 5 0 0">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -147,7 +153,8 @@
                      Grid.Column="1"
                      Background="#D9D9D9"
                      Margin="0 5 0 5"
-                     BorderThickness="0">
+                     BorderThickness="0"
+                         Padding="0 5 0 0">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -158,6 +165,7 @@
                      Grid.Column="1"
                      Background="#D9D9D9"
                      Margin="0 5 0 5"
+                         Padding="0 5 0 0"
                      BorderThickness="0">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
