@@ -22,6 +22,7 @@ public partial class Customer
     public int? IdHuyen { get; set; }
 
     public int? IdXa { get; set; }
+    public DateTime? CreateDate { get; set; }
 
     public virtual State? IdHuyenNavigation { get; set; }
 
