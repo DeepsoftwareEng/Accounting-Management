@@ -11,12 +11,6 @@ public partial class Invoice
 
     public string? MaSoThueBan { get; set; }
 
-    public string? NguoiMua { get; set; }
-
-    public string? DonViMua { get; set; }
-
-    public string? MaSoThueMua { get; set; }
-
     public DateTime? NgayLap { get; set; }
 
     public float? ThanhTien { get; set; }
@@ -24,6 +18,8 @@ public partial class Invoice
     public string? NoiDung { get; set; }
 
     public string? MaKhachHang { get; set; }
+
+    public DateTime? CreateDate { get; set; }
 
     public virtual Customer? MaKhachHangNavigation { get; set; }
 

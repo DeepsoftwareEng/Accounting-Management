@@ -27,5 +27,9 @@ public partial class PhieuXuat
 
     public string? MaHoaDon { get; set; }
 
+    public string? IdNhanVien { get; set; }
+
+    public virtual Employee? IdNhanVienNavigation { get; set; }
+
     public virtual Invoice? MaHoaDonNavigation { get; set; }
 }

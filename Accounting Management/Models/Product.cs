@@ -15,7 +15,7 @@ public partial class Product
 
     public float? DonGia { get; set; }
 
-    public DateTime CreateDate { get; set; }
+    public DateTime? CreateDate { get; set; }
 
     public virtual ICollection<ProductInvoice> ProductInvoices { get; set; } = new List<ProductInvoice>();
 }

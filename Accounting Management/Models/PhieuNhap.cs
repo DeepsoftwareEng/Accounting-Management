@@ -29,5 +29,7 @@ public partial class PhieuNhap
 
     public string? NoiNhap { get; set; }
 
+    public string? NguoiGiao { get; set; }
+
     public virtual Invoice? MaHoaDonNavigation { get; set; }
 }
