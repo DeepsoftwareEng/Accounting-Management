@@ -78,7 +78,8 @@
             <TextBox Grid.Row="2"
              Background="#D9D9D9"
                      Padding="0 5 0 0"
-             Margin="5 0 5 0">
+             Margin="5 0 5 0"
+                     x:Name="ProductNameTxb">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -94,7 +95,8 @@
             <TextBox Grid.Row="4"
              Background="#D9D9D9"
                      Padding="0 5 0 0"
-             Margin="5 0 5 0">
+             Margin="5 0 5 0"
+                     x:Name="DonViTinhTxb">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -110,7 +112,8 @@
             <TextBox Grid.Row="6"
              Background="#D9D9D9"
                      Padding="0 5 0 0"
-             Margin="5 0 5 0">
+             Margin="5 0 5 0"
+                     x:Name="SoLuongTxb">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -127,7 +130,8 @@
             <TextBox Grid.Row="8"
              Background="#D9D9D9"
                      Padding="0 5 0 0"
-             Margin="5 0 5 0">
+             Margin="5 0 5 0"
+                     x:Name="DonGiaTxb">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}"> 
                         <Setter Property="CornerRadius" Value="10"/>
@@ -163,7 +167,8 @@
                 Background="#0CC5FF"
                 FontWeight="Bold"
                 BorderThickness="0"
-                FontSize="20">
+                FontSize="20"
+                        x:Name="SaveBtn">
                     <Viewbox Margin="5 5 5 5">
                         <TextBlock Text="Lưu"></TextBlock>
                     </Viewbox>

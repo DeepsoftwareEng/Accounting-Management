@@ -72,9 +72,10 @@
             </Button>
         </Grid>
         <DataGrid Grid.Row="3" Margin="10 0 10 0"
+                  x:Name="ProductGrid"
           Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="STT" Width="*">
+                <DataGridTextColumn Header="STT" Width="*" Binding="{Binding STT}">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -82,7 +83,26 @@
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="#"  Width="*">
+                <DataGridTemplateColumn Header="#"  Width="*">
+                    <DataGridColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridColumn.HeaderStyle>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Sửa" Click="EditProduct">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="10"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Mã hàng hóa"  Width="4.4*" Binding="{Binding MaHangHoa}">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -90,54 +110,47 @@
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridCheckBoxColumn Header="Mã hàng hóa"  Width="4.4*">
+                <DataGridTextColumn Header="Tên hàng hóa"  Width="4.4*" Binding="{Binding TenHangHoa}">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
                             <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
-                </DataGridCheckBoxColumn>
-                <DataGridCheckBoxColumn Header="Tên hàng hóa"  Width="4.4*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Đơn vị tính"  Width="4.4*" Binding="{Binding DonViTinh}">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
                             <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
-                </DataGridCheckBoxColumn>
-                <DataGridCheckBoxColumn Header="Đơn vị tính"  Width="4.4*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Số lượng"  Width="4.4*" Binding="{Binding SoLuong}">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
                             <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
-                </DataGridCheckBoxColumn>
-                <DataGridCheckBoxColumn Header="Số lượng"  Width="4.4*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Đơn giá"  Width="4.4*" Binding="{Binding DonGia}">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
                             <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
-                </DataGridCheckBoxColumn>
-                <DataGridCheckBoxColumn Header="Đơn giá"  Width="4.4*">
-                    <DataGridColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="FontSize" Value="12"/>
-                            <Setter Property="HorizontalAlignment" Value="Center"/>
-                        </Style>
-                    </DataGridColumn.HeaderStyle>
-                </DataGridCheckBoxColumn>
+                </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="5" HorizontalAlignment="Left" Orientation="Horizontal"
-             Grid.ColumnSpan="2">
-            <TextBlock Text="Records per page" VerticalAlignment="Center" Margin="5"/>
+            Grid.ColumnSpan="2">
+            <TextBlock Text="Bản ghi mỗi trang: 20" VerticalAlignment="Center" Margin="5"/>
             <Button Content="&lt;&lt;" Height="30"
-             Width="30" BorderThickness="0"
-             ToolTip="First page" Margin="5" >
+            Width="30" BorderThickness="0"
+             x:Name="FirstPageBtn" Margin="5"
+            Click="FirstPageBtn_Click">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -145,9 +158,10 @@
                 </Button.Resources>
             </Button>
             <Button Content="&lt;" Margin="5" 
-             ToolTip="Previous page" BorderThickness="0"
-             Height="30"
-             Width="30">
+            x:Name="PreviousBtn" BorderThickness="0"
+            Height="30"
+            Width="30"
+            Click="PreviousClick">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -164,17 +178,18 @@
                 <TextBlock Margin="0 5 0 5" x:Name="TotalPageTxb" Foreground="LightGray"></TextBlock>
             </Viewbox>
             <!--<TextBlock VerticalAlignment="Center">
-         <TextBlock.Text>
-             <MultiBinding StringFormat="{} {0} of {1}">
-                 <Binding Path="CurrentPage"/>
-                 <Binding Path="NumberOfPages"/>
-             </MultiBinding>
-         </TextBlock.Text>
-     </TextBlock>-->
+        <TextBlock.Text>
+            <MultiBinding StringFormat="{} {0} of {1}">
+                <Binding Path="CurrentPage"/>
+                <Binding Path="NumberOfPages"/>
+            </MultiBinding>
+        </TextBlock.Text>
+    </TextBlock>-->
             <Button Content=">" Height="30"
-             Width="30" BorderThickness="0" 
-             Margin="5"
-             ToolTip="Next page">
+            Width="30" BorderThickness="0" 
+            Margin="5"
+            x:Name="NextBtn"
+            Click="NextBtn_Click">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -182,8 +197,9 @@
                 </Button.Resources>
             </Button>
             <Button Content=">>" Height="30"
-             Width="30" BorderThickness="0" Margin="5" 
-             ToolTip="Last page">
+            Width="30" BorderThickness="0" Margin="5" 
+            x:Name="LastPageBtn"
+            Click="LastPageBtn_Click">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>

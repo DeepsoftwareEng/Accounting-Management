@@ -154,6 +154,7 @@ public partial class AccountingManagementContext : DbContext
             entity.Property(e => e.DonVi).HasMaxLength(1000);
             entity.Property(e => e.MaSoThue).HasMaxLength(1000);
             entity.Property(e => e.SoDienThoai).HasMaxLength(10);
+            entity.Property(e => e.CreateDate).HasColumnType("datetime");
             entity.Property(e => e.TenKhachHang).HasMaxLength(1000);
 
             entity.HasOne(d => d.IdHuyenNavigation).WithMany(p => p.Customers)
@@ -289,6 +290,7 @@ public partial class AccountingManagementContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.DonViTinh).HasMaxLength(1000);
+            entity.Property(e => e.CreateDate).HasColumnType("datetime");
             entity.Property(e => e.TenHangHoa).HasMaxLength(1000);
         });
 

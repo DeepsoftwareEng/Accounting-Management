@@ -245,7 +245,7 @@ namespace Accounting_Management.View
             Customer cus = new();
             cus.CreateDate = DateTime.Now;
             var today = DateOnly.FromDateTime((DateTime)cus.CreateDate);
-            DateTime start = new DateTime(today.Day, today.Month, today.Day);
+            DateTime start = new DateTime(today.Year, today.Month, today.Day);
             var finish = start.AddDays(1);
             int count = dbcontext.Customers.Where(c => c.CreateDate >= start && c.CreateDate <= finish).ToList().Count;
             cus.MaKhachHang = "CUST" + today.Year.ToString() + today.Month.ToString() + today.Day.ToString();
@@ -272,7 +272,7 @@ namespace Accounting_Management.View
             dbcontext.Entry(cus).State = EntityState.Detached;
             try
             {
-                dbcontext.Set<Customer>().Add(cus);
+                dbcontext.Customers.Add(cus);
                 dbcontext.SaveChanges();
                 MessageBox.Show("Thành công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 CustomerGrid.ItemsSource = LoadData();
