@@ -69,14 +69,14 @@
                             </Style>
                         </DataGridColumn.HeaderStyle>
                     </DataGridTextColumn>
-                    <DataGridCheckBoxColumn Header="#"  Width="*">
+                    <DataGridTextColumn Header="#"  Width="*">
                         <DataGridColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="FontSize" Value="12"/>
                                 <Setter Property="HorizontalAlignment" Value="Center"/>
                             </Style>
                         </DataGridColumn.HeaderStyle>
-                    </DataGridCheckBoxColumn>
+                    </DataGridTextColumn>
                     <DataGridTextColumn Header="Mã hàng hóa"  Width="4.4*" Binding="{Binding MaHangHoa}">
                         <DataGridColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
@@ -119,6 +119,69 @@
                     </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
+            <StackPanel Grid.Row="3" HorizontalAlignment="Left" Orientation="Horizontal"
+        Grid.ColumnSpan="2">
+                <TextBlock Text="Bản ghi mỗi trang: 20" VerticalAlignment="Center" Margin="5"/>
+                <Button Content="&lt;&lt;" Height="30"
+        Width="30" BorderThickness="0"
+         x:Name="FirstPageBtn" Margin="5"
+        Click="FirstPageBtn_Click">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="&lt;" Margin="5" 
+        x:Name="PreviousBtn" BorderThickness="0"
+        Height="30"
+        Width="30"
+        Click="PreviousClick">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Viewbox>
+                    <TextBlock Margin="0 5 0 5" x:Name="CurrentPageTxb" Foreground="LightGray"></TextBlock>
+                </Viewbox>
+                <Viewbox>
+                    <TextBlock Margin="0 5 0 5" Foreground="LightGray">/</TextBlock>
+                </Viewbox>
+                <Viewbox>
+                    <TextBlock Margin="0 5 0 5" x:Name="TotalPageTxb" Foreground="LightGray"></TextBlock>
+                </Viewbox>
+                <!--<TextBlock VerticalAlignment="Center">
+    <TextBlock.Text>
+        <MultiBinding StringFormat="{} {0} of {1}">
+            <Binding Path="CurrentPage"/>
+            <Binding Path="NumberOfPages"/>
+        </MultiBinding>
+    </TextBlock.Text>
+</TextBlock>-->
+                <Button Content=">" Height="30"
+        Width="30" BorderThickness="0" 
+        Margin="5"
+        x:Name="NextBtn"
+        Click="NextBtn_Click">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content=">>" Height="30"
+        Width="30" BorderThickness="0" Margin="5" 
+        x:Name="LastPageBtn"
+        Click="LastPageBtn_Click">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
             <Grid Grid.Row="14">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="37.7*"/>

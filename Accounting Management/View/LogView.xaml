@@ -77,7 +77,7 @@
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridCheckBoxColumn Header="Hành động"  Width="4.4*">
+                <DataGridTextColumn Header="Hành động"  Width="4.4*">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -85,8 +85,8 @@
                             <Setter Property="FontFamily" Value="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
-                </DataGridCheckBoxColumn>
-                <DataGridCheckBoxColumn Header="Người thực hiện"  Width="4.4*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Người thực hiện"  Width="4.4*">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -94,8 +94,8 @@
                             <Setter Property="FontFamily" Value="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
-                </DataGridCheckBoxColumn>
-                <DataGridCheckBoxColumn Header="Ngày thực hiện"  Width="4.4*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Ngày thực hiện"  Width="4.4*">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -103,8 +103,8 @@
                             <Setter Property="FontFamily" Value="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
-                </DataGridCheckBoxColumn>
-                <DataGridCheckBoxColumn Header="Nội dung"  Width="4.4*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Nội dung"  Width="4.4*">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -112,7 +112,7 @@
                             <Setter Property="FontFamily" Value="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
-                </DataGridCheckBoxColumn>
+                </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="5" HorizontalAlignment="Left" Orientation="Horizontal"

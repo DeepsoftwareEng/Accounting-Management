@@ -183,41 +183,41 @@
             <DataGrid Grid.Row="3"
                   Grid.Column="1">
                 <DataGrid.Columns>
-                    <DataGridCheckBoxColumn Header="Mã hàng"  Width="4.4*">
+                    <DataGridTextColumn Header="Mã hàng"  Width="4.4*">
                         <DataGridColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="FontSize" Value="12"/>
                             </Style>
                         </DataGridColumn.HeaderStyle>
-                    </DataGridCheckBoxColumn>
-                    <DataGridCheckBoxColumn Header="Tên hàng"  Width="4.4*">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Tên hàng"  Width="4.4*">
                         <DataGridColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="FontSize" Value="12"/>
                             </Style>
                         </DataGridColumn.HeaderStyle>
-                    </DataGridCheckBoxColumn>
-                    <DataGridCheckBoxColumn Header="Số lượng"  Width="4.4*">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Số lượng"  Width="4.4*">
                         <DataGridColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="FontSize" Value="12"/>
                             </Style>
                         </DataGridColumn.HeaderStyle>
-                    </DataGridCheckBoxColumn>
-                    <DataGridCheckBoxColumn Header="Đơn giá"  Width="4.4*">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Đơn giá"  Width="4.4*">
                         <DataGridColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="FontSize" Value="12"/>
                             </Style>
                         </DataGridColumn.HeaderStyle>
-                    </DataGridCheckBoxColumn>
-                    <DataGridCheckBoxColumn Header="Thành tiền"  Width="4.4*">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Thành tiền"  Width="4.4*">
                         <DataGridColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="FontSize" Value="12"/>
                             </Style>
                         </DataGridColumn.HeaderStyle>
-                    </DataGridCheckBoxColumn>
+                    </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
             <Viewbox HorizontalAlignment="Right"

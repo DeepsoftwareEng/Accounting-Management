@@ -89,54 +89,54 @@
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridCheckBoxColumn Header="Mã nhân viên"  Width="4.4*">
+                <DataGridTextColumn Header="Mã nhân viên"  Width="4.4*">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
                             <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
-                </DataGridCheckBoxColumn>
-                <DataGridCheckBoxColumn Header="Tên nhên viên"  Width="4.4*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Tên nhên viên"  Width="4.4*">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
                             <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
-                </DataGridCheckBoxColumn>
-                <DataGridCheckBoxColumn Header="Ngày sinh"  Width="4.4*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Ngày sinh"  Width="4.4*">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
                             <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
-                </DataGridCheckBoxColumn>
-                <DataGridCheckBoxColumn Header="Số điện thoại"  Width="4.4*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Số điện thoại"  Width="4.4*">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
                             <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
-                </DataGridCheckBoxColumn>
-                <DataGridCheckBoxColumn Header="Đại chỉ"  Width="4.4*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Đại chỉ"  Width="4.4*">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
                             <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
-                </DataGridCheckBoxColumn>
-                <DataGridCheckBoxColumn Header="Chúc vụ"  Width="4.4*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Chúc vụ"  Width="4.4*">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
                             <Setter Property="HorizontalAlignment" Value="Center"/>
                         </Style>
                     </DataGridColumn.HeaderStyle>
-                </DataGridCheckBoxColumn>
+                </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="5" HorizontalAlignment="Left" Orientation="Horizontal"

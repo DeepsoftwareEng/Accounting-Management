@@ -141,7 +141,12 @@ namespace Accounting_Management.View
             if(CurrentPage != 1)
                 CurrentPage--;
             CurrentPageTxb.Text = CurrentPage.ToString();
-            CustomerGrid.ItemsSource = LoadData();
+            if (string.IsNullOrEmpty(globalFilter))
+                CustomerGrid.ItemsSource = LoadData();
+            else
+            {
+                CustomerGrid.ItemsSource = FilterData(globalFilter);
+            }
         }
 
         private void LastPageBtn_Click(object sender, RoutedEventArgs e)
@@ -161,7 +166,12 @@ namespace Accounting_Management.View
             if(CurrentPage < NumberOfPages)
                 CurrentPage++;
             CurrentPageTxb.Text = CurrentPage.ToString();
-            CustomerGrid.ItemsSource = LoadData();
+            if (string.IsNullOrEmpty(globalFilter))
+                CustomerGrid.ItemsSource = LoadData();
+            else
+            {
+                CustomerGrid.ItemsSource = FilterData(globalFilter);
+            }
         }
 
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
@@ -183,7 +193,12 @@ namespace Accounting_Management.View
         {
             CurrentPage = 1;
             CurrentPageTxb.Text = CurrentPage.ToString();
-            CustomerGrid.ItemsSource = LoadData();
+            if (string.IsNullOrEmpty(globalFilter))
+                CustomerGrid.ItemsSource = LoadData();
+            else
+            {
+                CustomerGrid.ItemsSource = FilterData(globalFilter);
+            }
         }
 
         private void EditCustomer(object sender, RoutedEventArgs e)

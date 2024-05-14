@@ -110,14 +110,24 @@ namespace Accounting_Management.View
         {
             CurrentPage = 1;
             CurrentPageTxb.Text = CurrentPage.ToString();
-            ProductGrid.ItemsSource = LoadData();
+            if (string.IsNullOrEmpty(globalFilter))
+                ProductGrid.ItemsSource = LoadData();
+            else
+            {
+                ProductGrid.ItemsSource = FilterData(globalFilter);
+            }
         }
         private void PreviousClick(object sender, RoutedEventArgs e)
         {
             if (CurrentPage != 1)
                 CurrentPage--;
             CurrentPageTxb.Text = CurrentPage.ToString();
-            ProductGrid.ItemsSource = LoadData();
+            if (string.IsNullOrEmpty(globalFilter))
+                ProductGrid.ItemsSource = LoadData();
+            else
+            {
+                ProductGrid.ItemsSource = FilterData(globalFilter);
+            }
         }
 
         private void LastPageBtn_Click(object sender, RoutedEventArgs e)
@@ -156,7 +166,12 @@ namespace Accounting_Management.View
             if (CurrentPage < NumberOfPages)
                 CurrentPage++;
             CurrentPageTxb.Text = CurrentPage.ToString();
-            ProductGrid.ItemsSource = LoadData();
+            if (string.IsNullOrEmpty(globalFilter))
+                ProductGrid.ItemsSource = LoadData();
+            else
+            {
+                ProductGrid.ItemsSource = FilterData(globalFilter);
+            }
         }
         private void SaveEditProduct(object sender, RoutedEventArgs e)
         {
