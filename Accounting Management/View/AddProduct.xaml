@@ -20,14 +20,146 @@
         <Grid Grid.Column="1"
               Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1.675*"/>
                 <RowDefinition Height="1.1*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="13.8*"/>
                 <RowDefinition Height="1.3*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Margin="10 0 0 0"
+                        Background="#D9D9D9">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+                <Button Grid.Column="2"
+                        Background="#47A7FF"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        FontSize="20">
+                    <Viewbox Margin="5 5 5 5">
+                        <TextBlock Text="Tìm"
+                   FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"
+                   ></TextBlock>
+                    </Viewbox>
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+            <DataGrid Grid.Row="2" Margin="10 0 10 0"
+                      x:Name="ProductGrid"
+                      Grid.ColumnSpan="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="STT" Width="*" Binding="{Binding STT}">
+                        <DataGridColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="FontSize" Value="12"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridColumn.HeaderStyle>
+                    </DataGridTextColumn>
+                    <DataGridCheckBoxColumn Header="#"  Width="*">
+                        <DataGridColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="FontSize" Value="12"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridColumn.HeaderStyle>
+                    </DataGridCheckBoxColumn>
+                    <DataGridTextColumn Header="Mã hàng hóa"  Width="4.4*" Binding="{Binding MaHangHoa}">
+                        <DataGridColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="FontSize" Value="12"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridColumn.HeaderStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Tên hàng hóa"  Width="4.4*" Binding="{Binding TenHangHoa}">
+                        <DataGridColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="FontSize" Value="12"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridColumn.HeaderStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Đơn vị tính"  Width="4.4*" Binding="{Binding DonViTinh}">
+                        <DataGridColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="FontSize" Value="12"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridColumn.HeaderStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Số lượng"  Width="4.4*" Binding="{Binding SoLuong}">
+                        <DataGridColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="FontSize" Value="12"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridColumn.HeaderStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Đơn giá"  Width="4.4*" Binding="{Binding DonGia}">
+                        <DataGridColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="FontSize" Value="12"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridColumn.HeaderStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid Grid.Row="14">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="37.7*"/>
+                    <ColumnDefinition Width="11.4*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="11.4*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1"
+                        Foreground="White"
+                        Background="Red"
+                        FontWeight="Bold"
+                        BorderThickness="0"
+                        FontSize="20"
+                        x:Name="Back">
+                    <Viewbox Margin="5 5 5 5">
+                        <TextBlock Text="Thoát"></TextBlock>
+                    </Viewbox>
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Grid.Column="3"
+                        Foreground="White"
+                        Background="#0CC5FF"
+                        FontWeight="Bold"
+                        BorderThickness="0"
+                        FontSize="20"
+                        x:Name="SaveBtn">
+                    <Viewbox Margin="5 5 5 5">
+                        <TextBlock Text="Lưu"></TextBlock>
+                    </Viewbox>
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

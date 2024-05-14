@@ -23,5 +23,6 @@ namespace Accounting_Management.View
         {
             InitializeComponent();
         }
+
     }
 }
