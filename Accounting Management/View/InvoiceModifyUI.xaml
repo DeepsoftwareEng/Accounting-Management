@@ -5,14 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Accounting_Management.View"
              mc:Ignorable="d" 
-             d:DesignHeight="9" d:DesignWidth="10"
+             d:DesignHeight="900" d:DesignWidth="1000"
              Background="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="10.3*"/>
             <RowDefinition Height="1.1*"/>
-            <RowDefinition Height="13.2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="12.2*"/>
             <RowDefinition Height="1.4*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="1.3*"/>
@@ -88,15 +89,23 @@
                     </Style>
                 </TextBox.Resources>
             </TextBox>
-            <Viewbox HorizontalAlignment="Left"
-                     Grid.Column="1">
-                <TextBlock Text="Bên mua"
-                           FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
-            </Viewbox>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Viewbox HorizontalAlignment="Left">
+                    <TextBlock Text="Bên mua"
+               FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
+                </Viewbox>
+                <ComboBox x:Name="CustomerCbb"
+                          Grid.Column="1" SelectionChanged="ChooseCustomer">
+                </ComboBox>
+            </Grid>
             <Viewbox HorizontalAlignment="Left"
                      Grid.Column="1"
                      Grid.Row="1">
-                <TextBlock Text="Mã hóa đơn"
+                <TextBlock Text="Người mua"
                            FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
             </Viewbox>
             <TextBox Grid.Row="2"
@@ -145,9 +154,55 @@
                 </TextBox.Resources>
             </TextBox>
         </Grid>
-        <DataGrid Grid.Row="3"
-                  Grid.Column="1"
-                  Margin="10 0 10 0">
+        <Grid Grid.Row="3"
+              Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="14*"/>
+                <ColumnDefinition Width=" *"/>
+                <ColumnDefinition Width=" 0.5*"/>
+                <ColumnDefinition Width=" *"/>
+                <ColumnDefinition Width=" 0.5*"/>
+                <ColumnDefinition Width=" *"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1"
+                    BorderThickness="0"
+                    Padding="0 0 0 5">
+                <Viewbox>
+                    <TextBlock Text="+"/>
+                </Viewbox>
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="7"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Grid.Column="3"
+                    BorderThickness="0"
+                    Padding="0 0 0 5">
+                <Viewbox>
+                    <TextBlock Text="-"/>
+                </Viewbox>
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="7"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Grid.Column="5"
+                    BorderThickness="0"
+                    Padding="0 0 0 5">
+                <Viewbox>
+                    <TextBlock Text="↻"/>
+                </Viewbox>
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="7"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+            <DataGrid Grid.Row="4"
+                  Grid.Column="1">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="Mã hàng"  Width="4.4*">
                     <DataGridColumn.HeaderStyle>
@@ -167,7 +222,7 @@
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridCheckBoxColumn>
-                <DataGridCheckBoxColumn Header="Số lượng"  Width="4.4*">
+                <DataGridCheckBoxColumn Header="Số lượng" x:Name="" Width="4.4*">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -196,7 +251,7 @@
                 </DataGridCheckBoxColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Viewbox Grid.Row="4"
+        <Viewbox Grid.Row="5"
                  Grid.Column="1"
                  HorizontalAlignment="Right"
                  Margin="0 0 10 0">
@@ -205,7 +260,7 @@
                        Foreground="Red"
                        FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf">Tổng: </TextBlock>
         </Viewbox>
-        <Grid Grid.Row="6"
+        <Grid Grid.Row="7"
               Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="23.1*"/>
