@@ -25,9 +25,5 @@ namespace Accounting_Management.View
             InitializeComponent();
         }
 
-        private void ChooseCustomer(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }

@@ -10,10 +10,11 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="10.3*"/>
+            <RowDefinition Height="9.4*"/>
             <RowDefinition Height="1.1*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="12.2*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="13.2*"/>
             <RowDefinition Height="1.4*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="1.3*"/>
@@ -34,11 +35,11 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="1.3*"/>
+                <RowDefinition Height="1*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="1.3*"/>
+                <RowDefinition Height="1*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="1.3*"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <Viewbox HorizontalAlignment="Left">
                 <TextBlock Text="Bên bán"
@@ -99,7 +100,7 @@
                FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                 </Viewbox>
                 <ComboBox x:Name="CustomerCbb"
-                          Grid.Column="1" SelectionChanged="ChooseCustomer">
+                          Grid.Column="1">
                 </ComboBox>
             </Grid>
             <Viewbox HorizontalAlignment="Left"
@@ -112,7 +113,8 @@
                      Grid.Column="1"
                      Background="#D9D9D9"
                      Margin="10 0 0 0"
-                     Padding="0 5 0 0">
+                     Padding="0 10 0 0"
+                      IsReadOnly="True">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -129,7 +131,8 @@
                      Margin="10 0 0 0"
                      Grid.Column="1"
                      Background="#D9D9D9"
-                     Padding="0 5 0 0">
+                     Padding="0 10 0 0"
+                     IsReadOnly="True">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -146,7 +149,8 @@
                      Grid.Column="1"
                      Margin="10 0 0 0"
                      Background="#D9D9D9"
-                     Padding="0 5 0 0">
+                     Padding="0 10 0 0"
+                      IsReadOnly="True">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -166,7 +170,9 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="1"
                     BorderThickness="0"
-                    Padding="0 0 0 5">
+                    Padding="0 0 0 5"
+                    x:Name="AddProductBtn"
+                   >
                 <Viewbox>
                     <TextBlock Text="+"/>
                 </Viewbox>
@@ -178,7 +184,8 @@
             </Button>
             <Button Grid.Column="3"
                     BorderThickness="0"
-                    Padding="0 0 0 5">
+                    Padding="0 0 0 5"
+                    x:Name="DeleteProductBtn">
                 <Viewbox>
                     <TextBlock Text="-"/>
                 </Viewbox>
@@ -190,7 +197,8 @@
             </Button>
             <Button Grid.Column="5"
                     BorderThickness="0"
-                    Padding="0 0 0 5">
+                    Padding="0 0 0 5"
+                    x:Name="ResetBtn">
                 <Viewbox>
                     <TextBlock Text="↻"/>
                 </Viewbox>
@@ -201,7 +209,7 @@
                 </Button.Resources>
             </Button>
         </Grid>
-            <DataGrid Grid.Row="4"
+            <DataGrid Grid.Row="5"
                   Grid.Column="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã hàng"  Width="4.4*">
@@ -251,7 +259,7 @@
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Viewbox Grid.Row="5"
+        <Viewbox Grid.Row="7"
                  Grid.Column="1"
                  HorizontalAlignment="Right"
                  Margin="0 0 10 0">
@@ -260,7 +268,7 @@
                        Foreground="Red"
                        FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf">Tổng: </TextBlock>
         </Viewbox>
-        <Grid Grid.Row="7"
+        <Grid Grid.Row="8"
               Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="23.1*"/>
