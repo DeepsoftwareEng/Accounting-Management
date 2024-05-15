@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Accounting_Management.View"
         mc:Ignorable="d"
-        Title="AddProduct" Height="900" Width="1000">
+        Title="AddProduct" Height="900" Width="1000"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -59,7 +60,8 @@
             </Grid>
             <DataGrid Grid.Row="2" Margin="10 0 10 0"
                       x:Name="ProductGrid"
-                      Grid.ColumnSpan="2">
+                      Grid.ColumnSpan="2"
+                      RowHeight="30">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="STT" Width="*" Binding="{Binding STT}">
                         <DataGridColumn.HeaderStyle>
@@ -69,14 +71,14 @@
                             </Style>
                         </DataGridColumn.HeaderStyle>
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="#"  Width="*">
+                    <DataGridCheckBoxColumn Header="#"  Width="*" Binding="{Binding IsChecked}">
                         <DataGridColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="FontSize" Value="12"/>
                                 <Setter Property="HorizontalAlignment" Value="Center"/>
                             </Style>
                         </DataGridColumn.HeaderStyle>
-                    </DataGridTextColumn>
+                    </DataGridCheckBoxColumn>
                     <DataGridTextColumn Header="Mã hàng hóa"  Width="4.4*" Binding="{Binding MaHangHoa}">
                         <DataGridColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
@@ -196,7 +198,8 @@
                         FontWeight="Bold"
                         BorderThickness="0"
                         FontSize="20"
-                        x:Name="Back">
+                        x:Name="BackBtn"
+                        Click="BackBtn_Click">
                     <Viewbox Margin="5 5 5 5">
                         <TextBlock Text="Thoát"></TextBlock>
                     </Viewbox>
@@ -214,7 +217,7 @@
                         FontSize="20"
                         x:Name="SaveBtn">
                     <Viewbox Margin="5 5 5 5">
-                        <TextBlock Text="Lưu"></TextBlock>
+                        <TextBlock Text="Thêm"></TextBlock>
                     </Viewbox>
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">

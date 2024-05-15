@@ -29,6 +29,8 @@ namespace Accounting_Management.View
         public AddProduct()
         {
             InitializeComponent();
+            ProductGrid.AutoGenerateColumns = false;
+            ProductGrid.ItemsSource = LoadData();
         }
         private dynamic LoadData()
         {
@@ -36,6 +38,7 @@ namespace Accounting_Management.View
             NumberOfPages = data / 20;
             if (data % 20 != 0)
                 NumberOfPages++;
+            CurrentPageTxb.Text = CurrentPage.ToString();
             TotalPageTxb.Text = NumberOfPages.ToString();
             var rs = dbcontext.Products.AsNoTracking().ToList().Skip(20 * (CurrentPage - 1)).Take(20);
             List<dynamic> response = new List<dynamic>();
@@ -45,6 +48,7 @@ namespace Accounting_Management.View
                 var product = new
                 {
                     STT = stt,
+                    IsChecked = false,
                     MaHangHoa = item.MaHangHoa,
                     TenHangHoa = item.TenHangHoa,
                     DonViTinh = item.DonViTinh,
@@ -73,6 +77,7 @@ namespace Accounting_Management.View
                 var product = new
                 {
                     STT = stt,
+                    IsChecked = false,
                     MaHangHoa = item.MaHangHoa,
                     TenHangHoa = item.TenHangHoa,
                     DonViTinh = item.DonViTinh,
@@ -115,6 +120,11 @@ namespace Accounting_Management.View
                 CurrentPage++;
             CurrentPageTxb.Text = CurrentPage.ToString();
             ProductGrid.ItemsSource = LoadData();
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

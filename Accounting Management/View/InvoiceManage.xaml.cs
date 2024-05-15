@@ -37,9 +37,9 @@ namespace Accounting_Management.View
         }
         private void LoadCombobox()
         {
-            var customers = dbcontext.Cities.ToList();
-            Drawer.CustomerCbb.DisplayMemberPath = "TenKhacHang";
-            Drawer.CustomerCbb.SelectedValue = "MaKhachHang";
+            var customers = dbcontext.Customers.ToList();
+            Drawer.CustomerCbb.DisplayMemberPath = "TenKhachHang";
+            Drawer.CustomerCbb.SelectedValuePath = "MaKhachHang";
             Drawer.CustomerCbb.ItemsSource = customers;
         }
         private dynamic LoadData()
@@ -163,7 +163,11 @@ namespace Accounting_Management.View
 
         private void ChooseCustomer(object sender, SelectionChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            dynamic selectedCustomer = e.AddedItems[0];
+            Drawer.TenKhachHangTxb.Text = selectedCustomer.TenKhachHang;
+            Drawer.SDTTxb.Text = selectedCustomer.SoDienThoai;
+            Drawer.CompanyTxb.Text = selectedCustomer.DonVi;
+            Drawer.TaxCodeTxb.Text = selectedCustomer.MaSoThue;
         }
 
         private void ResetBtn_Click(object sender, RoutedEventArgs e)
@@ -180,7 +184,15 @@ namespace Accounting_Management.View
         {
             AddProduct add = new AddProduct();
             add.Show();
+            List<dynamic> selectedProd = new();
+            add.SaveBtn.Click += (sender , e) =>
+            {
+                var temp = add.ProductGrid.ItemsSource;
+                dynamic selectedItem = temp;
+
+            };
         }
+
         private void EditInvoice(object sender, RoutedEventArgs e)
         {
             var selected = InvoiceGrid.SelectedItem;
