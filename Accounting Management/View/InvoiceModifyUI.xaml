@@ -12,8 +12,6 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="9.4*"/>
             <RowDefinition Height="1.1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="0.3*"/>
             <RowDefinition Height="13.2*"/>
             <RowDefinition Height="1.4*"/>
             <RowDefinition Height="*"/>
@@ -42,79 +40,18 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <Viewbox HorizontalAlignment="Left">
-                <TextBlock Text="Bên bán"
+                <TextBlock Text="Chọn khách hàng"
                            FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
             </Viewbox>
             <Viewbox HorizontalAlignment="Left"
-                     Grid.Row="1">
-                <TextBlock Text="Mã hóa đơn"
-                           FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
-            </Viewbox>
-            <TextBox Grid.Row="2"
-                     Margin="10 0 0 0"
-                     Background="#D9D9D9"
-                     Padding="0 5 0 0">
-                <TextBox.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </TextBox.Resources>
-            </TextBox>
-            <Viewbox HorizontalAlignment="Left"
-                     Grid.Row="3">
-                <TextBlock Text="Đơn vị bán"
-                           FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
-            </Viewbox>
-            <TextBox Grid.Row="4"
-                     Margin="10 0 0 0"
-                     Background="#D9D9D9"
-                     Padding="0 5 0 0">
-                <TextBox.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </TextBox.Resources>
-            </TextBox>
-            <Viewbox HorizontalAlignment="Left"
-                     Grid.Row="5">
-                <TextBlock Text="Mã số thuế"
-                           FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
-            </Viewbox>
-            <TextBox Grid.Row="6"
-                     Margin="10 0 0 0"
-                     Background="#D9D9D9"
-                     Padding="0 5 0 0">
-                <TextBox.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </TextBox.Resources>
-            </TextBox>
-            <Grid Grid.Column="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Viewbox HorizontalAlignment="Left">
-                    <TextBlock Text="Bên mua"
-               FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
-                </Viewbox>
-                <ComboBox x:Name="CustomerCbb"
-                          Grid.Column="1">
-                </ComboBox>
-            </Grid>
-            <Viewbox HorizontalAlignment="Left"
-                     Grid.Column="1"
                      Grid.Row="1">
                 <TextBlock Text="Người mua"
                            FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
             </Viewbox>
             <TextBox Grid.Row="2"
-                     Grid.Column="1"
-                     Background="#D9D9D9"
                      Margin="10 0 0 0"
-                     Padding="0 10 0 0"
-                      IsReadOnly="True">
+                     Background="#D9D9D9"
+                     Padding="0 5 0 0">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -122,17 +59,14 @@
                 </TextBox.Resources>
             </TextBox>
             <Viewbox HorizontalAlignment="Left"
-                     Grid.Column="1"
                      Grid.Row="3">
-                <TextBlock Text="Đơn vị bán"
+                <TextBlock Text="Số điện thoại"
                            FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
             </Viewbox>
             <TextBox Grid.Row="4"
                      Margin="10 0 0 0"
-                     Grid.Column="1"
                      Background="#D9D9D9"
-                     Padding="0 10 0 0"
-                     IsReadOnly="True">
+                     Padding="0 5 0 0">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -140,76 +74,97 @@
                 </TextBox.Resources>
             </TextBox>
             <Viewbox HorizontalAlignment="Left"
-                     Grid.Column="1"
                      Grid.Row="5">
-                <TextBlock Text="Mã số thuế"
+                <TextBlock Text="Đơn vị"
                            FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
             </Viewbox>
             <TextBox Grid.Row="6"
-                     Grid.Column="1"
                      Margin="10 0 0 0"
                      Background="#D9D9D9"
-                     Padding="0 10 0 0"
-                      IsReadOnly="True">
+                     Padding="0 5 0 0">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </TextBox.Resources>
             </TextBox>
+            <ComboBox x:Name="CustomerCbb"
+                      Grid.Column="1">
+            </ComboBox>
+            <Viewbox HorizontalAlignment="Left"
+                     Grid.Column="1"
+                     Grid.Row="1">
+                <TextBlock Text="Nội dung"
+                           FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
+            </Viewbox>
+            <TextBox Grid.Row="2"
+                     Grid.Column="1"
+                     Grid.RowSpan="3"
+                     Background="#D9D9D9"
+                     Margin="10 0 0 0"
+                     Padding="0 10 0 0"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Grid Grid.Row="6"
+                  Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width=" *"/>
+                    <ColumnDefinition Width=" 0.5*"/>
+                    <ColumnDefinition Width=" *"/>
+                    <ColumnDefinition Width=" 0.5*"/>
+                    <ColumnDefinition Width=" *"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1"
+            BorderThickness="0"
+            Padding="0 0 0 5"
+            x:Name="AddProductBtn"
+           >
+                    <Viewbox>
+                        <TextBlock Text="+"/>
+                    </Viewbox>
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Grid.Column="3"
+            BorderThickness="0"
+            Padding="0 0 0 5"
+            x:Name="DeleteProductBtn">
+                    <Viewbox>
+                        <TextBlock Text="-"/>
+                    </Viewbox>
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Grid.Column="5"
+            BorderThickness="0"
+            Padding="0 0 0 5"
+            x:Name="ResetBtn">
+                    <Viewbox>
+                        <TextBlock Text="↻"/>
+                    </Viewbox>
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
         </Grid>
-        <Grid Grid.Row="3"
-              Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="14*"/>
-                <ColumnDefinition Width=" *"/>
-                <ColumnDefinition Width=" 0.5*"/>
-                <ColumnDefinition Width=" *"/>
-                <ColumnDefinition Width=" 0.5*"/>
-                <ColumnDefinition Width=" *"/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="1"
-                    BorderThickness="0"
-                    Padding="0 0 0 5"
-                    x:Name="AddProductBtn"
-                   >
-                <Viewbox>
-                    <TextBlock Text="+"/>
-                </Viewbox>
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="7"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <Button Grid.Column="3"
-                    BorderThickness="0"
-                    Padding="0 0 0 5"
-                    x:Name="DeleteProductBtn">
-                <Viewbox>
-                    <TextBlock Text="-"/>
-                </Viewbox>
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="7"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <Button Grid.Column="5"
-                    BorderThickness="0"
-                    Padding="0 0 0 5"
-                    x:Name="ResetBtn">
-                <Viewbox>
-                    <TextBlock Text="↻"/>
-                </Viewbox>
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="7"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-        </Grid>
-            <DataGrid Grid.Row="5"
+        
+            <DataGrid Grid.Row="3"
                   Grid.Column="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã hàng"  Width="4.4*">
@@ -259,7 +214,7 @@
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Viewbox Grid.Row="7"
+        <Viewbox Grid.Row="5"
                  Grid.Column="1"
                  HorizontalAlignment="Right"
                  Margin="0 0 10 0">
@@ -268,7 +223,7 @@
                        Foreground="Red"
                        FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf">Tổng: </TextBlock>
         </Viewbox>
-        <Grid Grid.Row="8"
+        <Grid Grid.Row="6"
               Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="23.1*"/>

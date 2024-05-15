@@ -47,6 +47,8 @@ public partial class AccountingManagementContext : DbContext
 
     public virtual DbSet<Role> Roles { get; set; }
 
+    public virtual DbSet<Shop> Shops { get; set; }
+
     public virtual DbSet<State> States { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
@@ -174,17 +176,16 @@ public partial class AccountingManagementContext : DbContext
 
         modelBuilder.Entity<Department>(entity =>
         {
-            entity.HasKey(e => e.IdPhongBan).HasName("PK__Departme__CFFBAF4C206D1462");
+            entity.HasKey(e => e.IdPhongBan).HasName("PK__Departme__CFFBAF4C3FBE5FB0");
 
             entity.ToTable("Department");
 
-            entity.Property(e => e.IdPhongBan).ValueGeneratedNever();
             entity.Property(e => e.TenPhongBan).HasMaxLength(1000);
         });
 
         modelBuilder.Entity<Employee>(entity =>
         {
-            entity.HasKey(e => e.MaNhanVien).HasName("PK__Employee__77B2CA475F5D0E81");
+            entity.HasKey(e => e.MaNhanVien).HasName("PK__Employee__77B2CA4730A9007B");
 
             entity.ToTable("Employee");
 
@@ -197,11 +198,11 @@ public partial class AccountingManagementContext : DbContext
 
             entity.HasOne(d => d.IdChucVuNavigation).WithMany(p => p.Employees)
                 .HasForeignKey(d => d.IdChucVu)
-                .HasConstraintName("FK__Employee__IdChuc__73BA3083");
+                .HasConstraintName("FK__Employee__IdChuc__00200768");
 
             entity.HasOne(d => d.IdPhongBanNavigation).WithMany(p => p.Employees)
                 .HasForeignKey(d => d.IdPhongBan)
-                .HasConstraintName("FK__Employee__IdPhon__74AE54BC");
+                .HasConstraintName("FK__Employee__IdPhon__01142BA1");
         });
 
         modelBuilder.Entity<Invoice>(entity =>
@@ -214,9 +215,7 @@ public partial class AccountingManagementContext : DbContext
                 .HasMaxLength(1000)
                 .IsUnicode(false);
             entity.Property(e => e.CreateDate).HasColumnType("datetime");
-            entity.Property(e => e.DonViBan).HasMaxLength(1000);
             entity.Property(e => e.MaKhachHang).HasMaxLength(1000);
-            entity.Property(e => e.MaSoThueBan).HasMaxLength(1000);
             entity.Property(e => e.NgayLap).HasColumnType("datetime");
             entity.Property(e => e.NoiDung).HasMaxLength(1000);
 
@@ -312,11 +311,11 @@ public partial class AccountingManagementContext : DbContext
 
             entity.HasOne(d => d.IdNhanVienNavigation).WithMany()
                 .HasForeignKey(d => d.IdNhanVien)
-                .HasConstraintName("fk_Employee_PhieuXuat");
+                .HasConstraintName("FK__PhieuXuat__IdNha__04E4BC85");
 
             entity.HasOne(d => d.MaHoaDonNavigation).WithMany()
                 .HasForeignKey(d => d.MaHoaDon)
-                .HasConstraintName("FK__PhieuXuat__MaHoa__45F365D3");
+                .HasConstraintName("FK__PhieuXuat__MaHoa__05D8E0BE");
         });
 
         modelBuilder.Entity<Product>(entity =>
@@ -357,12 +356,25 @@ public partial class AccountingManagementContext : DbContext
 
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.IdChucVu).HasName("PK__Role__81D916DFC1FCCC89");
+            entity.HasKey(e => e.IdChucVu).HasName("PK__Role__81D916DF2E898CD9");
 
             entity.ToTable("Role");
 
-            entity.Property(e => e.IdChucVu).ValueGeneratedNever();
             entity.Property(e => e.TenChucVu).HasMaxLength(1000);
+        });
+
+        modelBuilder.Entity<Shop>(entity =>
+        {
+            entity.HasKey(e => e.MaSoThue).HasName("PK__Shop__1E811CB0B3223873");
+
+            entity.ToTable("Shop");
+
+            entity.Property(e => e.MaSoThue)
+                .HasMaxLength(1000)
+                .IsUnicode(false);
+            entity.Property(e => e.TenCongTy)
+                .HasMaxLength(1000)
+                .IsUnicode(false);
         });
 
         modelBuilder.Entity<State>(entity =>

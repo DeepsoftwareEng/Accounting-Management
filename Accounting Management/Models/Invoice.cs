@@ -7,10 +7,6 @@ public partial class Invoice
 {
     public string MaHoaDon { get; set; } = null!;
 
-    public string? DonViBan { get; set; }
-
-    public string? MaSoThueBan { get; set; }
-
     public DateTime? NgayLap { get; set; }
 
     public float? ThanhTien { get; set; }
