@@ -198,9 +198,9 @@
         </Grid>
         <DataGrid Grid.Row="3"
                   Grid.Column="1"
-                      x:Name="ProductInvoiceGrid">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Mã hàng"  Width="4.4*">
+                  x:Name="ProductInvoiceGrid">
+            <!--<DataGrid.Columns>
+                <DataGridTextColumn Header="Mã hàng"  Width="4.4*" Binding="{Binding MaHangHoa}" IsReadOnly="True">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -209,7 +209,7 @@
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Tên hàng"  Width="4.4*">
+                <DataGridTextColumn Header="Tên hàng"  Width="4.4*" Binding="{Binding TenHangHoa}" IsReadOnly="True">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -218,7 +218,7 @@
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Số lượng" Width="4.4*">
+                <DataGridTextColumn Header="Số lượng" Width="4.4*" Binding="{Binding SoLuong}" IsReadOnly="False">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -227,7 +227,7 @@
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Đơn giá"  Width="4.4*">
+                <DataGridTextColumn Header="Đơn giá"  Width="4.4*" Binding="{Binding DonGia}" IsReadOnly="True">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -236,7 +236,7 @@
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Thành tiền"  Width="4.4*">
+                <DataGridTextColumn Header="Thành tiền"  Width="4.4*" Binding="{Binding ThanhTien}">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -245,7 +245,7 @@
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
-            </DataGrid.Columns>
+            </DataGrid.Columns>-->
         </DataGrid>
         <Viewbox Grid.Row="5"
                  Grid.Column="1"

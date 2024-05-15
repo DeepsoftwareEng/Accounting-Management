@@ -149,5 +149,19 @@ namespace Accounting_Management.View
                 selectedProduct.Remove(datacontext);
             }
         }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            var temp = ProductGrid.SelectedItem;
+            dynamic selected = temp;
+            selectedProduct.Add(temp);
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            var temp = ProductGrid.SelectedItem;
+            dynamic selected = temp;
+            selectedProduct.Remove(temp);
+        }
     }
 }

@@ -72,7 +72,7 @@
                             </Style>
                         </DataGridColumn.HeaderStyle>
                     </DataGridTextColumn>
-                    <DataGridCheckBoxColumn Header="#"  Width="*" Binding="{Binding IsSelected, Mode=TwoWay}" IsReadOnly="false"
+                    <!--<DataGridCheckBoxColumn Header="#"  Width="*" Binding="{Binding IsSelected, Mode=TwoWay}" IsReadOnly="false"
                                            >
                         <DataGridColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
@@ -85,7 +85,22 @@
                                 <EventSetter Event="CheckBox.Checked" Handler="OnChecked"/>
                             </Style>
                         </DataGridCheckBoxColumn.CellStyle>
-                    </DataGridCheckBoxColumn>
+                    </DataGridCheckBoxColumn>-->
+                    <DataGridTemplateColumn Header="#"  Width="*">
+                        <DataGridColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="FontSize" Value="12"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridColumn.HeaderStyle>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Checked="CheckBox_Checked"
+                                          Unchecked="CheckBox_Unchecked">
+                                </CheckBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                     <DataGridTextColumn Header="Mã hàng hóa"  Width="4.4*" Binding="{Binding MaHangHoa}">
                         <DataGridColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">

@@ -27,12 +27,14 @@ namespace Accounting_Management.View
         int CurrentPage = 1;
         string globalFilter = "";
         string InvoiceId;
+        List<dynamic> selectedProduct = new List<dynamic>();
         public InvoiceManage()
         {
             InitializeComponent();
             CurrentPageTxb.Text = CurrentPage.ToString();
             InvoiceGrid.AutoGenerateColumns = false;
             InvoiceGrid.ItemsSource = LoadData();
+            Drawer.ProductInvoiceGrid.AutoGenerateColumns = true;
             LoadCombobox();
         }
         private void LoadCombobox()
@@ -184,11 +186,25 @@ namespace Accounting_Management.View
         {
             AddProduct add = new AddProduct();
             add.Show();
-            List<dynamic> selectedProd = new();
-            //add.SaveBtn.Click += (sender , e) =>
-            //{
-                
-            //};
+            add.SaveBtn.Click += (sender, e) =>
+            {
+                this.selectedProduct = add.selectedProduct;
+                List<dynamic> prodSource = new();
+                foreach(var i in selectedProduct)
+                {
+                    var temp = new
+                    {
+                        MaHangHoa = i.MaHangHoa,
+                        TenHangHoa = i.TenHangHoa,
+                        SoLuong = 0,
+                        DonGia = i.DonGia,
+                        ThanhTien = 0
+                    };
+                    prodSource.Add(temp);
+                }
+                Drawer.ProductInvoiceGrid.ItemsSource = prodSource;
+                add.Close();
+            };
         }
 
         private void EditInvoice(object sender, RoutedEventArgs e)
@@ -220,6 +236,7 @@ namespace Accounting_Management.View
             Drawer.IsEnabled = false;
             Drawer.Visibility = Visibility.Hidden;
             Drawer.Opacity = 0;
+            Drawer.ProductInvoiceGrid.ItemsSource = null;
         }
     }
 }
