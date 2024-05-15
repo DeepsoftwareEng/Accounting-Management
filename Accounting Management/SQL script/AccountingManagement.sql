@@ -103,6 +103,7 @@ create table Invoice(
 	ThanhTien real,
 	NoiDung nvarchar(1000),
 	MaKhachHang nvarchar(1000),
+	CreateDate datetime,
 	Foreign Key(MaKhachHang) references Customer(MaKhachHang)
 )
 create table Product_Invoice(
@@ -173,6 +174,8 @@ alter table Invoice
 drop column MaSoThueBan
 alter table Invoice
 drop column DonViBan
+alter table Invoice
+add CreateDate datetime
 drop table PhieuXuat
 drop table Employee
 drop table Department
@@ -185,3 +188,4 @@ insert into City values (N'Hà N?i')
 insert into State values (N'B?c T? Liêm')
 insert into Commune values (N'Xuân Ph??ng')
 select * from Customer
+select * from Invoice
