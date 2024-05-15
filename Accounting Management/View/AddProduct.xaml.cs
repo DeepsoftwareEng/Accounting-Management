@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,6 +27,7 @@ namespace Accounting_Management.View
         int CurrentPage = 1;
         string ProductId;
         string globalFilter = "";
+        public List<dynamic> selectedProduct = new List<dynamic>();
         public AddProduct()
         {
             InitializeComponent();
@@ -125,6 +127,27 @@ namespace Accounting_Management.View
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var source = ProductGrid.ItemsSource;
+        }
+
+        void OnChecked(object sender, RoutedEventArgs e)
+        {
+            var temp = sender;
+            dynamic selected = temp;
+            var datacontext = selected.DataContext;
+            var checkIsAdded = selectedProduct.Where(c => c.MaHangHoa == datacontext.MaHangHoa).FirstOrDefault();
+            if(checkIsAdded == null)
+            {
+                selectedProduct.Add(datacontext);
+            }
+            else
+            {
+                selectedProduct.Remove(datacontext);
+            }
         }
     }
 }

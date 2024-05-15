@@ -52,6 +52,7 @@
                      FontSize="18"
                      Margin="10 0 0 0"
                      Background="#D9D9D9"
+                     IsReadOnly="True"
                      Padding="0 5 0 0"
                      x:Name="TenKhachHangTxb">
                 <TextBox.Resources>
@@ -69,6 +70,7 @@
                      Margin="10 0 0 0"
                      FontSize="18"
                      Background="#D9D9D9"
+                     IsReadOnly="True"
                      Padding="0 5 0 0"
                      x:Name="SDTTxb">
                 <TextBox.Resources>
@@ -87,6 +89,7 @@
                      FontSize="18"
                      Background="#D9D9D9"
                      Padding="0 5 0 0"
+                     IsReadOnly="True"
                      x:Name="CompanyTxb">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -107,10 +110,9 @@
                      Grid.Column="1"
                      FontSize="18"
                      Background="#D9D9D9"
+                     IsReadOnly="True"
                      Margin="10 0 0 0"
                      Padding="0 5 0 0"
-                     AcceptsReturn="True"
-                     TextWrapping="Wrap"
                      x:Name="TaxCodeTxb">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">

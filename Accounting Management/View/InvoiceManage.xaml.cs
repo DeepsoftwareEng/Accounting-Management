@@ -185,12 +185,10 @@ namespace Accounting_Management.View
             AddProduct add = new AddProduct();
             add.Show();
             List<dynamic> selectedProd = new();
-            add.SaveBtn.Click += (sender , e) =>
-            {
-                var temp = add.ProductGrid.ItemsSource;
-                dynamic selectedItem = temp;
-
-            };
+            //add.SaveBtn.Click += (sender , e) =>
+            //{
+                
+            //};
         }
 
         private void EditInvoice(object sender, RoutedEventArgs e)
