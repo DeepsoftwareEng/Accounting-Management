@@ -1,9 +1,11 @@
 ﻿using Accounting_Management.Models;
+using Accounting_Management.ViewModel;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,14 +29,24 @@ namespace Accounting_Management.View
         int CurrentPage = 1;
         string ProductId;
         string globalFilter = "";
-        public List<dynamic> selectedProduct = new List<dynamic>();
+        public readonly ProductViewModel viewModel = new();
+        public List<Prod> selectedProducts = new List<Prod>();
         public AddProduct()
         {
             InitializeComponent();
             ProductGrid.AutoGenerateColumns = false;
-            ProductGrid.ItemsSource = LoadData();
+            this.viewModel.ProdSource = LoadData();
+            this.DataContext = this.viewModel;
         }
-        private dynamic LoadData()
+        public AddProduct(List<Prod> selectedProduct)
+        {
+            InitializeComponent();
+            this.selectedProducts = selectedProduct;
+            ProductGrid.AutoGenerateColumns = false;
+            this.viewModel.ProdSource = LoadData();
+            this.DataContext = this.viewModel;
+        }
+        private List<Prod> LoadData()
         {
             var data = dbcontext.Products.Count();
             NumberOfPages = data / 20;
@@ -43,51 +55,52 @@ namespace Accounting_Management.View
             CurrentPageTxb.Text = CurrentPage.ToString();
             TotalPageTxb.Text = NumberOfPages.ToString();
             var rs = dbcontext.Products.AsNoTracking().ToList().Skip(20 * (CurrentPage - 1)).Take(20);
-            List<dynamic> response = new List<dynamic>();
+            List<Prod> response = new List<Prod>();
             int stt = (CurrentPage - 1) * 20 + 1;
             foreach (var item in rs)
             {
-                var product = new
+                
+                if (selectedProducts.Where(c=> c.MaHangHoa == item.MaHangHoa).FirstOrDefault() != null)
                 {
-                    STT = stt,
-                    IsChecked = false,
-                    MaHangHoa = item.MaHangHoa,
-                    TenHangHoa = item.TenHangHoa,
-                    DonViTinh = item.DonViTinh,
-                    SoLuong = item.SoLuong,
-                    DonGia = item.DonGia,
-                };
-                stt++;
-                response.Add(product);
+                    Prod product = new(stt.ToString(), true, item.MaHangHoa, item.TenHangHoa, item.DonViTinh, item.SoLuong.ToString(), item.DonGia.ToString());
+                    stt++;
+                    response.Add(product);
+                }
+                else
+                {
+                    Prod product = new(stt.ToString(), false, item.MaHangHoa, item.TenHangHoa, item.DonViTinh, item.SoLuong.ToString(), item.DonGia.ToString());
+                    stt++;
+                    response.Add(product);
+                }
             }
             return response;
         }
-        private dynamic FilterData(string filter)
+        private List<Prod> FilterData(string filter)
         {
             var data = dbcontext.Products.Where(c => c.MaHangHoa.Contains(filter) || c.TenHangHoa.Contains(filter)).AsNoTracking().ToList();
             if (data.Count() == 0)
-                return data;
+                return null;
             NumberOfPages = data.Count / 20;
             if (data.Count % 20 != 0)
                 NumberOfPages++;
             TotalPageTxb.Text = NumberOfPages.ToString();
             var rs = data.Skip(20 * (CurrentPage - 1)).Take(20);
-            List<dynamic> response = new List<dynamic>();
+            List<Prod> response = new List<Prod>();
             int stt = (CurrentPage - 1) * 20 + 1;
             foreach (var item in rs)
             {
-                var product = new
+                if (selectedProducts.Where(c => c.MaHangHoa == item.MaHangHoa).FirstOrDefault() != null)
                 {
-                    STT = stt,
-                    IsChecked = false,
-                    MaHangHoa = item.MaHangHoa,
-                    TenHangHoa = item.TenHangHoa,
-                    DonViTinh = item.DonViTinh,
-                    SoLuong = item.SoLuong,
-                    DonGia = item.DonGia,
-                };
-                stt++;
-                response.Add(product);
+                    Prod product = new(stt.ToString(), true, item.MaHangHoa, item.TenHangHoa, item.DonViTinh, item.SoLuong.ToString(), item.DonGia.ToString());
+                    stt++;
+                    response.Add(product);
+                }
+                else
+                {
+                    Prod product = new(stt.ToString(), false, item.MaHangHoa, item.TenHangHoa, item.DonViTinh, item.SoLuong.ToString(), item.DonGia.ToString());
+                    stt++;
+                    response.Add(product);
+                }
             }
             return response;
         }
@@ -123,45 +136,32 @@ namespace Accounting_Management.View
             CurrentPageTxb.Text = CurrentPage.ToString();
             ProductGrid.ItemsSource = LoadData();
         }
-
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
-        private void SaveBtn_Click(object sender, RoutedEventArgs e)
-        {
-            var source = ProductGrid.ItemsSource;
-        }
-
         void OnChecked(object sender, RoutedEventArgs e)
         {
-            var temp = sender;
+            var temp = ProductGrid.SelectedItem;
             dynamic selected = temp;
-            var datacontext = selected.DataContext;
-            var checkIsAdded = selectedProduct.Where(c => c.MaHangHoa == datacontext.MaHangHoa).FirstOrDefault();
-            if(checkIsAdded == null)
+            if(selected != null)
             {
-                selectedProduct.Add(datacontext);
-            }
-            else
-            {
-                selectedProduct.Remove(datacontext);
+                Prod prod = new Prod("", true, selected.MaHangHoa, selected.TenHangHoa, selected.DonViTinh, selected.SoLuong, selected.DonGia);
+                var checkExists = selectedProducts.Where(c => c.MaHangHoa == selected.MaHangHoa).FirstOrDefault();
+                if(checkExists == null)
+                    selectedProducts.Add(prod);
             }
         }
-
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        void OnUnChecked(object sender, RoutedEventArgs e)
         {
             var temp = ProductGrid.SelectedItem;
             dynamic selected = temp;
-            selectedProduct.Add(temp);
-        }
-
-        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
-        {
-            var temp = ProductGrid.SelectedItem;
-            dynamic selected = temp;
-            selectedProduct.Remove(temp);
+            if(selected != null)
+            {
+                var removeItem = selectedProducts.Where(x => x.MaHangHoa == selected.MaHangHoa).FirstOrDefault();
+                selectedProducts.Remove(removeItem);
+            }
+            
         }
     }
 }

@@ -196,57 +196,13 @@
                 </Button.Resources>
             </Button>
         </Grid>
-        <DataGrid Grid.Row="3"
-                  Grid.Column="1"
-                  x:Name="ProductInvoiceGrid">
-            <!--<DataGrid.Columns>
-                <DataGridTextColumn Header="Mã hàng"  Width="4.4*" Binding="{Binding MaHangHoa}" IsReadOnly="True">
-                    <DataGridColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="FontSize" Value="12"/>
-                            <Setter Property="FontFamily" Value="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
-
-                        </Style>
-                    </DataGridColumn.HeaderStyle>
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="Tên hàng"  Width="4.4*" Binding="{Binding TenHangHoa}" IsReadOnly="True">
-                    <DataGridColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="FontSize" Value="12"/>
-                            <Setter Property="FontFamily" Value="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
-
-                        </Style>
-                    </DataGridColumn.HeaderStyle>
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="Số lượng" Width="4.4*" Binding="{Binding SoLuong}" IsReadOnly="False">
-                    <DataGridColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="FontSize" Value="12"/>
-                            <Setter Property="FontFamily" Value="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
-
-                        </Style>
-                    </DataGridColumn.HeaderStyle>
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="Đơn giá"  Width="4.4*" Binding="{Binding DonGia}" IsReadOnly="True">
-                    <DataGridColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="FontSize" Value="12"/>
-                            <Setter Property="FontFamily" Value="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
-
-                        </Style>
-                    </DataGridColumn.HeaderStyle>
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="Thành tiền"  Width="4.4*" Binding="{Binding ThanhTien}">
-                    <DataGridColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="FontSize" Value="12"/>
-                            <Setter Property="FontFamily" Value="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
-
-                        </Style>
-                    </DataGridColumn.HeaderStyle>
-                </DataGridTextColumn>
-            </DataGrid.Columns>-->
-        </DataGrid>
+        <ScrollViewer Grid.Row="3"
+                  Grid.Column="1">
+            <StackPanel 
+          x:Name="ProductInvoiceGrid">
+            </StackPanel>
+        </ScrollViewer>
+        
         <Viewbox Grid.Row="5"
                  Grid.Column="1"
                  HorizontalAlignment="Right"
@@ -254,7 +210,8 @@
             <TextBlock FontWeight="Bold"
                        FontSize="36"
                        Foreground="Red"
-                       FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf">Tổng: </TextBlock>
+                       x:Name="TongTienTxb"
+                       FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"></TextBlock>
         </Viewbox>
         <Grid Grid.Row="6"
               Grid.Column="1">
@@ -285,7 +242,8 @@
                     Background="#0CC5FF"
                     FontWeight="Bold"
                     BorderThickness="0"
-                    FontSize="20">
+                    FontSize="20"
+                    x:Name="SaveBtn">
                 <Viewbox Margin="5 5 5 5">
                     <TextBlock Text="Lưu"></TextBlock>
                 </Viewbox>

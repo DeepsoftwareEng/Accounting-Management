@@ -24,6 +24,15 @@ namespace Accounting_Management.View
         {
             InitializeComponent();
         }
-
+        public void Reset()
+        {
+            CustomerCbb.SelectedIndex = 0;
+            TenKhachHangTxb.Text = "";
+            SDTTxb.Text = "";
+            CompanyTxb.Text = "";
+            TaxCodeTxb.Text = "";
+            ContentTxb.Text = "";
+            ProductInvoiceGrid.Children.Clear();
+        }
     }
 }

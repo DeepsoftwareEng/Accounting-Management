@@ -243,6 +243,13 @@
                 </Button.Resources>
             </Button>
         </StackPanel>
+        <Rectangle Grid.Column="0"
+                   Grid.RowSpan="7"
+                   Fill="Black"
+                   x:Name="Blur"
+                   IsEnabled="False"
+                   Visibility="Hidden"
+                   Opacity="0"/>
         <local:InvoiceModifyUI
            Grid.Column="1"
            Grid.RowSpan="7"

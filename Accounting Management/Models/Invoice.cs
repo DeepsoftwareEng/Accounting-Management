@@ -15,8 +15,6 @@ public partial class Invoice
 
     public string? MaKhachHang { get; set; }
 
-    public DateTime? CreateDate { get; set; }
-
     public virtual Customer? MaKhachHangNavigation { get; set; }
 
     public virtual ICollection<ProductInvoice> ProductInvoices { get; set; } = new List<ProductInvoice>();

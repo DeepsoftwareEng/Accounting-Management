@@ -214,7 +214,6 @@ public partial class AccountingManagementContext : DbContext
             entity.Property(e => e.MaHoaDon)
                 .HasMaxLength(1000)
                 .IsUnicode(false);
-            entity.Property(e => e.CreateDate).HasColumnType("datetime");
             entity.Property(e => e.MaKhachHang).HasMaxLength(1000);
             entity.Property(e => e.NgayLap).HasColumnType("datetime");
             entity.Property(e => e.NoiDung).HasMaxLength(1000);

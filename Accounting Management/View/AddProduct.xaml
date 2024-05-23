@@ -62,6 +62,7 @@
                       x:Name="ProductGrid"
                       Grid.ColumnSpan="2"
                       RowHeight="30" 
+                      ItemsSource="{Binding ProdSource}"
                       >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="STT" Width="*" Binding="{Binding STT}">
@@ -72,21 +73,7 @@
                             </Style>
                         </DataGridColumn.HeaderStyle>
                     </DataGridTextColumn>
-                    <!--<DataGridCheckBoxColumn Header="#"  Width="*" Binding="{Binding IsSelected, Mode=TwoWay}" IsReadOnly="false"
-                                           >
-                        <DataGridColumn.HeaderStyle>
-                            <Style TargetType="DataGridColumnHeader">
-                                <Setter Property="FontSize" Value="12"/>
-                                <Setter Property="HorizontalAlignment" Value="Center"/>
-                            </Style>
-                        </DataGridColumn.HeaderStyle>
-                        <DataGridCheckBoxColumn.CellStyle>
-                            <Style>
-                                <EventSetter Event="CheckBox.Checked" Handler="OnChecked"/>
-                            </Style>
-                        </DataGridCheckBoxColumn.CellStyle>
-                    </DataGridCheckBoxColumn>-->
-                    <DataGridTemplateColumn Header="#"  Width="*">
+                    <!--<DataGridTemplateColumn Header="#"  Width="*">
                         <DataGridColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="FontSize" Value="12"/>
@@ -100,7 +87,16 @@
                                 </CheckBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                    </DataGridTemplateColumn>-->
+                    <DataGridCheckBoxColumn Header="#" Width="*" Binding="{Binding IsChecked}"
+                                            >
+                        <DataGridCheckBoxColumn.CellStyle>
+                            <Style>
+                                <EventSetter Event="CheckBox.Checked" Handler="OnChecked"/>
+                                <EventSetter Event="CheckBox.Unchecked" Handler="OnUnChecked"/>
+                            </Style>
+                        </DataGridCheckBoxColumn.CellStyle>
+                    </DataGridCheckBoxColumn>
                     <DataGridTextColumn Header="Mã hàng hóa"  Width="4.4*" Binding="{Binding MaHangHoa}">
                         <DataGridColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader">
@@ -237,7 +233,7 @@
                         FontWeight="Bold"
                         BorderThickness="0"
                         FontSize="20"
-                        x:Name="SaveBtn" Click="SaveBtn_Click">
+                        x:Name="SaveBtn">
                     <Viewbox Margin="5 5 5 5">
                         <TextBlock Text="Thêm"></TextBlock>
                     </Viewbox>
