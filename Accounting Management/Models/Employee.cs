@@ -17,7 +17,25 @@ public partial class Employee
 
     public DateTime? CreateDate { get; set; }
 
+    public string? DiaChiCuThe { get; set; }
+
+    public int? IdThanhPho { get; set; }
+
+    public int? IdHuyen { get; set; }
+
+    public int? IdXa { get; set; }
+
+    public string? SoDienThoai { get; set; }
+
+    public string? GioiTinh { get; set; }
+
     public virtual Role? IdChucVuNavigation { get; set; }
 
+    public virtual State? IdHuyenNavigation { get; set; }
+
     public virtual Department? IdPhongBanNavigation { get; set; }
+
+    public virtual City? IdThanhPhoNavigation { get; set; }
+
+    public virtual Commune? IdXaNavigation { get; set; }
 }

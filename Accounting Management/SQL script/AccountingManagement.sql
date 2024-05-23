@@ -55,6 +55,13 @@ create table Employee(
 	IdChucVu int,
 	IdPhongBan int,
 	CreateDate datetime,
+	DiaChiCuThe nvarchar(1000),
+	IdThanhPho int,
+	IdHuyen int,
+	IdXa int,
+	Foreign Key(IdThanhPho) references City(Id),
+	Foreign Key(IdHuyen) references State(Id),
+	Foreign Key(IdXa) references Commune(Id),
 	Foreign Key(IdChucVu) references Role(IdChucVu),
 	Foreign Key(IdPhongBan) references Department(IdPhongBan)
 )
@@ -162,6 +169,16 @@ alter table PhieuXuat
 add IdNhanVien varchar(1000)
 alter table PhieuXuat
 add constraint fk_Employee_PhieuXuat foreign key (IdNhanVien) references Employee(MaNhanVien)
+alter table Employee
+add constraint fk_Employee_ThanhPho foreign key (IdThanhPho) references City(Id)
+alter table Employee
+add constraint fk_Employee_Huyen foreign key (IdHuyen) references State(Id)
+alter table Employee
+add constraint fk_Employee_Xa foreign key (IdXa) references Commune(Id)
+alter table Employee
+add SoDienThoai varchar(10)
+alter table Employee
+add GioiTinh varchar(10)
 alter table Customer
 add CreateDate datetime
 alter table Invoice

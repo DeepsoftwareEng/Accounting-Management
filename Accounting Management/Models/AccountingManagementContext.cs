@@ -193,16 +193,35 @@ public partial class AccountingManagementContext : DbContext
                 .HasMaxLength(1000)
                 .IsUnicode(false);
             entity.Property(e => e.CreateDate).HasColumnType("datetime");
+            entity.Property(e => e.DiaChiCuThe).HasMaxLength(1000);
+            entity.Property(e => e.GioiTinh)
+                .HasMaxLength(10)
+                .IsUnicode(false);
             entity.Property(e => e.NgaySinh).HasColumnType("datetime");
+            entity.Property(e => e.SoDienThoai)
+                .HasMaxLength(10)
+                .IsUnicode(false);
             entity.Property(e => e.TenNhanVien).HasMaxLength(1000);
 
             entity.HasOne(d => d.IdChucVuNavigation).WithMany(p => p.Employees)
                 .HasForeignKey(d => d.IdChucVu)
                 .HasConstraintName("FK__Employee__IdChuc__00200768");
 
+            entity.HasOne(d => d.IdHuyenNavigation).WithMany(p => p.Employees)
+                .HasForeignKey(d => d.IdHuyen)
+                .HasConstraintName("fk_Employee_Huyen");
+
             entity.HasOne(d => d.IdPhongBanNavigation).WithMany(p => p.Employees)
                 .HasForeignKey(d => d.IdPhongBan)
                 .HasConstraintName("FK__Employee__IdPhon__01142BA1");
+
+            entity.HasOne(d => d.IdThanhPhoNavigation).WithMany(p => p.Employees)
+                .HasForeignKey(d => d.IdThanhPho)
+                .HasConstraintName("fk_Employee_ThanhPho");
+
+            entity.HasOne(d => d.IdXaNavigation).WithMany(p => p.Employees)
+                .HasForeignKey(d => d.IdXa)
+                .HasConstraintName("fk_Employee_Xa");
         });
 
         modelBuilder.Entity<Invoice>(entity =>

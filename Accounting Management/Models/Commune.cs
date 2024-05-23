@@ -10,4 +10,6 @@ public partial class Commune
     public string? TenXa { get; set; }
 
     public virtual ICollection<Customer> Customers { get; set; } = new List<Customer>();
+
+    public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
 }
