@@ -38,4 +38,16 @@ public partial class Employee
     public virtual City? IdThanhPhoNavigation { get; set; }
 
     public virtual Commune? IdXaNavigation { get; set; }
+
+    public virtual ICollection<PhieuNhap> PhieuNhapGiamDocNavigations { get; set; } = new List<PhieuNhap>();
+
+    public virtual ICollection<PhieuNhap> PhieuNhapKeToanTruongNavigations { get; set; } = new List<PhieuNhap>();
+
+    public virtual ICollection<PhieuNhap> PhieuNhapNguoiLapNavigations { get; set; } = new List<PhieuNhap>();
+
+    public virtual ICollection<PhieuXuat> PhieuXuatGiamDocNavigations { get; set; } = new List<PhieuXuat>();
+
+    public virtual ICollection<PhieuXuat> PhieuXuatKeToanTruongNavigations { get; set; } = new List<PhieuXuat>();
+
+    public virtual ICollection<PhieuXuat> PhieuXuatNguoiLapNavigations { get; set; } = new List<PhieuXuat>();
 }

@@ -24,5 +24,12 @@ namespace Accounting_Management.View
         {
             InitializeComponent();
         }
+        public void Reset()
+        {
+            DonGiaTxb.Clear();
+            DonViTinhTxb.Clear();
+            ProductNameTxb.Clear();
+            SoLuongTxb.Clear();
+        }
     }
 }

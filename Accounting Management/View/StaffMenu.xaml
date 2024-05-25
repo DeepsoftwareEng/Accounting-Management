@@ -155,7 +155,7 @@
                    FontSize="20"/>
                 </Viewbox>
             </Grid>
-            <Grid Grid.Row="17" Margin="10 0 10  0"
+            <!--<Grid Grid.Row="17" Margin="10 0 10  0"
                    MouseLeftButtonDown="LogClick">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -168,7 +168,7 @@
                    FontWeight="Medium"
                    FontSize="20"/>
                 </Viewbox>
-            </Grid>
+            </Grid>-->
             <Viewbox Grid.Row="18"></Viewbox>
             <Grid Grid.Row="19">
                 <Grid.ColumnDefinitions>

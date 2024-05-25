@@ -238,6 +238,7 @@ namespace Accounting_Management.View
             cus.IdXa = (int?)Drawer.CommuneCbb.SelectedValue;
             cus.IdHuyen = (int?)Drawer.StateCbb.SelectedValue;
             cus.MaKhachHang = CustomerId;
+
             CustomerId = "";
             dbcontext.Entry(cus).State = EntityState.Detached;
             try

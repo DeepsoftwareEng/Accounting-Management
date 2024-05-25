@@ -13,5 +13,7 @@ public partial class BankLog
 
     public string? MaTaiKhoan { get; set; }
 
+    public DateTime? CreateDate { get; set; }
+
     public virtual BankAccount? MaTaiKhoanNavigation { get; set; }
 }

@@ -5,7 +5,7 @@ namespace Accounting_Management.Models;
 
 public partial class PhieuXuat
 {
-    public string? MaPhieu { get; set; }
+    public string MaPhieu { get; set; } = null!;
 
     public string? DonVi { get; set; }
 
@@ -27,9 +27,15 @@ public partial class PhieuXuat
 
     public string? MaHoaDon { get; set; }
 
-    public string? IdNhanVien { get; set; }
+    public string? NhanVienGiao { get; set; }
 
-    public virtual Employee? IdNhanVienNavigation { get; set; }
+    public int? IsThanhToan { get; set; }
+
+    public virtual Employee? GiamDocNavigation { get; set; }
+
+    public virtual Employee? KeToanTruongNavigation { get; set; }
 
     public virtual Invoice? MaHoaDonNavigation { get; set; }
+
+    public virtual Employee? NguoiLapNavigation { get; set; }
 }

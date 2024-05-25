@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,13 +59,15 @@ namespace Accounting_Management.View
             Drawer.GenderCbb.ItemsSource = genders;
             Drawer.CityCbb.ItemsSource = citys;
             Drawer.StateCbb.ItemsSource = states;
-            Drawer.RoleCbb.ItemsSource = communes;
+            Drawer.CommuneCbb.ItemsSource= communes;
+            Drawer.RoleCbb.ItemsSource = roles;
         }
         private void AddStaff_Click(object sender, RoutedEventArgs e)
         {
             Drawer.StaffNameTxb.Text = "";
             Drawer.AddressTxb.Text = "";
             Drawer.SDTTxb.Text = "";
+            Drawer.DobTxb.Clear();
             Drawer.CityCbb.SelectedValue = 1;
             Drawer.StateCbb.SelectedValue = 1;
             Drawer.CommuneCbb.SelectedValue = 1;
@@ -83,9 +86,10 @@ namespace Accounting_Management.View
             var today = DateOnly.FromDateTime((DateTime)emp.CreateDate);
             DateTime start = new DateTime(today.Year, today.Month, today.Day);
             var finish = start.AddDays(1);
-            int count = dbcontext.Customers.Where(c => c.CreateDate >= start && c.CreateDate <= finish).ToList().Count;
-            emp.MaNhanVien = "CUST" + today.Year.ToString() + today.Month.ToString() + today.Day.ToString();
-            if (count > 0)
+            int count = dbcontext.Employees.Where(c => c.CreateDate >= start && c.CreateDate <= finish).ToList().Count;
+            DateTime dob = DateTime.ParseExact(Drawer.DobTxb.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            emp.MaNhanVien = "STAFF" + today.Year.ToString() + today.Month.ToString() + today.Day.ToString();
+            if (count >= 0)
             {
                 string countString = "";
                 count++;
@@ -101,6 +105,7 @@ namespace Accounting_Management.View
             emp.SoDienThoai = Drawer.SDTTxb.Text;
             emp.DiaChiCuThe = Drawer.AddressTxb.Text;
             emp.IdThanhPho = (int?)Drawer.CityCbb.SelectedValue;
+            emp.NgaySinh = dob;
             emp.IdXa = (int?)Drawer.CommuneCbb.SelectedValue;
             emp.IdHuyen = (int?)Drawer.StateCbb.SelectedValue;
             emp.IdChucVu = (int?)Drawer.RoleCbb.SelectedValue;
@@ -132,6 +137,7 @@ namespace Accounting_Management.View
             Drawer.AddressTxb.Text = staff.DiaChiCuThe;
             Drawer.SDTTxb.Text = staff.SoDienThoai;
             Drawer.CityCbb.SelectedValue = staff.IdThanhPho;
+            Drawer.DobTxb.Text = staff.NgaySinh.ToString();
             Drawer.StateCbb.SelectedValue = staff.IdHuyen;
             Drawer.CommuneCbb.SelectedValue = staff.IdXa;
             Drawer.RoleCbb.SelectedValue = staff.IdChucVu;
@@ -148,6 +154,7 @@ namespace Accounting_Management.View
 
         private void SaveEditStaff(object sender, RoutedEventArgs e)
         {
+            DateTime dob = DateTime.ParseExact(Drawer.DobTxb.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             Employee emp = new();
             emp.TenNhanVien = Drawer.StaffNameTxb.Text;
             emp.SoDienThoai = Drawer.SDTTxb.Text;
@@ -157,6 +164,7 @@ namespace Accounting_Management.View
             emp.IdHuyen = (int?)Drawer.StateCbb.SelectedValue;
             emp.IdChucVu = (int?)Drawer.RoleCbb.SelectedValue;
             emp.GioiTinh = Drawer.GenderCbb.SelectedItem.ToString();
+            emp.NgaySinh = dob;
             emp.MaNhanVien = StaffId;
             StaffId = "";
             dbcontext.Entry(emp).State = EntityState.Detached;
@@ -202,7 +210,7 @@ namespace Accounting_Management.View
                     NgaySinh = item.NgaySinh.ToString(),
                     SoDienThoai = item.SoDienThoai,
                     DiaChi = item.DiaChiCuThe,
-                    ChuVu = chucVu,
+                    ChucVu = chucVu.TenChucVu,
                 };
                 stt++;
                 response.Add(customer);
@@ -232,7 +240,7 @@ namespace Accounting_Management.View
                     NgaySinh = item.NgaySinh.ToString(),
                     SoDienThoai = item.SoDienThoai,
                     DiaChi = item.DiaChiCuThe,
-                    ChuVu = chucVu,
+                    ChuCVu = chucVu,
                 };
                 stt++;
                 response.Add(customer);

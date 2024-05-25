@@ -34,7 +34,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBox Margin="10 0 0 0"
-                 Background="#D9D9D9">
+                 Background="#D9D9D9"
+                     x:Name="FilterTxt">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -45,7 +46,8 @@
                 Background="#47A7FF"
                 Foreground="White"
                 FontWeight="Bold"
-                FontSize="20">
+                FontSize="20"
+                    Click="SearchBtn_Click">
                 <Viewbox Margin="5 5 5 5">
                     <TextBlock Text="Tìm"></TextBlock>
                 </Viewbox>
@@ -73,6 +75,7 @@
         </Grid>
         <DataGrid Grid.Row="3" Margin="10 0 10 0"
                   x:Name="ProductGrid"
+                  IsReadOnly="True"
           Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="STT" Width="*" Binding="{Binding STT}">

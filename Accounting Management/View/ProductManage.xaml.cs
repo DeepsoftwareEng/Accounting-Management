@@ -102,6 +102,7 @@ namespace Accounting_Management.View
         }
         private void Back_Click(object sender, RoutedEventArgs e)
         {
+            Drawer.Reset();
             Drawer.IsEnabled = false;
             Drawer.Visibility = Visibility.Hidden;
             Drawer.Opacity = 0;
@@ -194,6 +195,7 @@ namespace Accounting_Management.View
             {
                 MessageBox.Show(ex.Message);
             }
+            Drawer.Reset();
             Drawer.IsEnabled = false;
             Drawer.Visibility = Visibility.Hidden;
             Drawer.Opacity = 0;
@@ -236,9 +238,25 @@ namespace Accounting_Management.View
             {
                 MessageBox.Show(ex.Message);
             }
+            Drawer.Reset();
             Drawer.IsEnabled = false;
             Drawer.Visibility = Visibility.Hidden;
             Drawer.Opacity = 0;
+        }
+        private void SearchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentPage = 1;
+            if (!string.IsNullOrEmpty(FilterTxt.Text.Trim()))
+            {
+                globalFilter = FilterTxt.Text;
+                ProductGrid.ItemsSource = FilterData(globalFilter);
+            }
+            else
+            {
+                globalFilter = "";
+                ProductGrid.ItemsSource = LoadData();
+            }
+
         }
     }
 }

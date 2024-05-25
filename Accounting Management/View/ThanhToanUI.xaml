@@ -1,0 +1,54 @@
+﻿<Window x:Class="Accounting_Management.View.ThanhToanUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Accounting_Management.View"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="ThanhToanUI" Height="450" Width="800"
+        Background="LightBlue">
+    <Grid>
+        <Rectangle
+            Width="400"
+            Fill="White"></Rectangle>
+            <TextBlock Text="Thanh toán"
+                   FontSize="32"
+                   FontWeight="Bold"
+                   Height="30"
+                   Width="180" Margin="310,30,310,374"/>
+        <ComboBox Height="20"
+                  Width="300" Margin="250,146,250,268"
+                  x:Name="BankAccountCbb"/>
+        <TextBlock Text="Chọn tài khoản thanh toán"
+                   FontSize="16"
+                   FontWeight="Medium"
+                   Height="20"
+                   Width="200" Margin="250,121,350,293"/>
+        <Button Width="100"
+                Height="35"
+         Foreground="White"
+         Background="Green"
+         FontWeight="Bold"
+         BorderThickness="0"
+         FontSize="20"
+         x:Name="PayBtn"
+         Margin="350,298,350,101"
+         Click="PayBtn_Click">
+            <Viewbox Margin="5 5 5 5">
+                <TextBlock Text="Thanh toán"></TextBlock>
+            </Viewbox>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBlock Text="← Quay lại"
+                   Foreground="Gray"
+                   FontSize="20"
+                   Height="22"
+                   Width="100" Margin="216,400,484,12"
+                   MouseLeftButtonDown="Quit"/>
+    </Grid>
+</Window>

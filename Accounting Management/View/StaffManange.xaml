@@ -75,7 +75,7 @@
           Grid.ColumnSpan="2"
                   x:Name="StaffGrid">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="STT" Width="*">
+                <DataGridTextColumn Header="STT" Width="*" Binding="{Binding STT}">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -102,7 +102,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Mã nhân viên"  Width="4.4*">
+                <DataGridTextColumn Header="Mã nhân viên"  Width="4.4*" Binding="{Binding MaNhanVien}">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -110,7 +110,7 @@
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Tên nhên viên"  Width="4.4*">
+                <DataGridTextColumn Header="Tên nhên viên"  Width="4.4*" Binding="{Binding TenNhanVien}">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -118,7 +118,7 @@
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Ngày sinh"  Width="4.4*">
+                <DataGridTextColumn Header="Ngày sinh"  Width="4.4*" Binding="{Binding NgaySinh}">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -126,7 +126,7 @@
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Số điện thoại"  Width="4.4*">
+                <DataGridTextColumn Header="Số điện thoại"  Width="4.4*" Binding="{Binding SoDienThoai}">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -134,7 +134,7 @@
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Đại chỉ"  Width="4.4*">
+                <DataGridTextColumn Header="Địa chỉ"  Width="4.4*" Binding="{Binding DiaChi}">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
@@ -142,7 +142,7 @@
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Chúc vụ"  Width="4.4*">
+                <DataGridTextColumn Header="Chúc vụ"  Width="4.4*" Binding="{Binding ChucVu}">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>

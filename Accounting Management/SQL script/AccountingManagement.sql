@@ -38,6 +38,7 @@ create table BankAccount(
 	HienCo int,
 	LoaiTaiKhoan varchar(1000),
 	IdNganHang int,
+	CreateDate datetime,
 	Foreign Key(IdNganHang) references Bank(IdNganHang)
 )
 create table Role(
@@ -70,6 +71,7 @@ Create table BankLog(
 	NoiDung varchar(1000),
 	SoTien real,
 	MaTaiKHoan varchar(1000),
+	CreateDate datetime
 	Foreign Key(MaTaiKHoan) references BankAccount(MaTaiKHoan)
 )
 create table Account(
@@ -111,6 +113,7 @@ create table Invoice(
 	NoiDung nvarchar(1000),
 	MaKhachHang nvarchar(1000),
 	CreateDate datetime,
+	isPayed int,
 	Foreign Key(MaKhachHang) references Customer(MaKhachHang)
 )
 create table Product_Invoice(
@@ -122,7 +125,7 @@ create table Product_Invoice(
 	Foreign Key(MaHoaDon) references Invoice(MaHoaDon)
 )
 Create table PhieuXuat(
-	MaPhieu varchar(1000),
+	MaPhieu varchar(1000) primary key,
 	DonVi varchar(1000),
 	DiaChi varchar(1000),
 	LiDo varchar(1000),
@@ -130,27 +133,34 @@ Create table PhieuXuat(
 	NguoiLap varchar(1000),
 	ThuKho nvarchar(1000),
 	NguoiNhan nvarchar(1000),
-	GiamDoc nvarchar(1000),
-	KeToanTruong nvarchar(1000),
+	GiamDoc varchar(1000),
+	KeToanTruong varchar(1000),
 	MaHoaDon varchar(1000),
-	IdNhanVien varchar(1000),
-	Foreign Key(IdNhanVien) references Employee(MaNhanVien),
+	NhanVienGiao varchar(1000),
+	isThanhToan int,
+	Foreign Key(NguoiLap) references Employee(MaNhanVien),
+	Foreign Key(GiamDoc) references Employee(MaNhanVien),
+	Foreign Key(KeToanTruong) references Employee(MaNhanVien),
 	Foreign Key(MaHoaDon) references Invoice(MaHoaDon)
 )
 Create table PhieuNhap(
-	MaPhieu varchar(1000),
+	MaPhieu varchar(1000) primary key,
 	DonVi varchar(1000),
 	DiaChi varchar(1000),
 	NoiDung varchar(1000),
 	NgayLap datetime,
-	NguoiGiao nvarchar(1000),
+	NguoiGiao varchar(1000),
 	NguoiLap varchar(1000),
 	ThuKho nvarchar(1000),
 	NguoiNhan nvarchar(1000),
-	GiamDoc nvarchar(1000),
-	KeToanTruong nvarchar(1000),
+	GiamDoc varchar(1000),
+	KeToanTruong varchar(1000),
 	MaHoaDon varchar(1000),
 	NoiNhap nvarchar(1000),
+	isThanhToan int,
+	Foreign Key(NguoiLap) references Employee(MaNhanVien),
+	Foreign Key(GiamDoc) references Employee(MaNhanVien),
+	Foreign Key(KeToanTruong) references Employee(MaNhanVien),
 	Foreign Key(MaHoaDon) references Invoice(MaHoaDon)
 )
 create table Shop(
@@ -177,6 +187,10 @@ alter table Employee
 add constraint fk_Employee_Xa foreign key (IdXa) references Commune(Id)
 alter table Employee
 add SoDienThoai varchar(10)
+alter table BankAccount
+add CreateDate datetime
+alter table BankAccount
+add TenTaiKhoan nvarchar(1000)
 alter table Employee
 add GioiTinh varchar(10)
 alter table Customer
@@ -193,9 +207,23 @@ alter table Invoice
 drop column DonViBan
 alter table Invoice
 add CreateDate datetime
+alter table PhieuNhap
+add isThanhToan int
+alter table PhieuXuat
+add isThanhToan int
+alter table BankAccount
+add HienCo float
+alter table BankAccount
+add TienNo float
+alter table BankLog
+add CreateDate datetime
+alter table Invoice
+add IsPayed int
 drop table PhieuXuat
 drop table Employee
 drop table Department
+drop table PhieuNhap
+drop table PhieuXuat
 drop table Role
 insert into Account values ('admin', 'admin1', 'ADMIN', 'deepit2507@gmail.com'),
 				           ('staff', 'staff', 'STAFF', 'deepit2507@gmail.com')

@@ -24,5 +24,20 @@ namespace Accounting_Management.View
         {
             InitializeComponent();
         }
+        public void Reset()
+        {
+            CompanyTxb.Text = "";
+            ContentTxb.Text = "";
+            DiaChiTxb.Text = "";
+            NguoiGiaoTxb.Text = "";
+            NguoiNhanTxb.Text = "";
+            NoiNhapTxb.Text = "";
+            ThuKhoTxb.Text = "";
+            TongTxb.Text = "Tổng: ";
+            CreateByCbb.SelectedIndex = 0;
+            GiamDocCbb.SelectedIndex = 0;
+            KeToanTruongCbb.SelectedIndex = 0;
+            InvoiceCbb.SelectedIndex = 0;
+        }
     }
 }

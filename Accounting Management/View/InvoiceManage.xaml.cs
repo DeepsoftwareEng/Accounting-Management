@@ -197,6 +197,7 @@ namespace Accounting_Management.View
             invoice.NgayLap = DateTime.Now;
             invoice.ThanhTien = (float?)TongTien;
             invoice.NoiDung = Drawer.ContentTxb.Text;
+            invoice.IsPayed = 0;
             dbcontext.Invoices.Add(invoice);
             await dbcontext.SaveChangesAsync();
             foreach (var i in Drawer.ProductInvoiceGrid.Children)
@@ -508,12 +509,28 @@ namespace Accounting_Management.View
             Drawer.IsEnabled = false;
             Drawer.Visibility = Visibility.Hidden;
             Drawer.Opacity = 0;
+            Drawer.Reset();
             Blur.Visibility = Visibility.Hidden;
             Blur.IsEnabled = false;
             Blur.Opacity = 0;
             Drawer.ProductInvoiceGrid.Children.Clear();
             this.selectedProduct.Clear();
             Drawer.TongTienTxb.Text = "Tổng: 0";
+        }
+        private void SearchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentPage = 1;
+            if (!string.IsNullOrEmpty(FilterTxt.Text.Trim()))
+            {
+                globalFilter = FilterTxt.Text;
+                InvoiceGrid.ItemsSource = FilterData(globalFilter);
+            }
+            else
+            {
+                globalFilter = "";
+                InvoiceGrid.ItemsSource = LoadData();
+            }
+
         }
     }
 }

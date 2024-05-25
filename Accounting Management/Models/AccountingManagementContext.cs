@@ -97,12 +97,14 @@ public partial class AccountingManagementContext : DbContext
             entity.Property(e => e.MaTaiKhoan)
                 .HasMaxLength(1000)
                 .IsUnicode(false);
+            entity.Property(e => e.CreateDate).HasColumnType("datetime");
             entity.Property(e => e.LoaiTaiKhoan)
                 .HasMaxLength(1000)
                 .IsUnicode(false);
             entity.Property(e => e.SoTaiKhoan)
                 .HasMaxLength(1000)
                 .IsUnicode(false);
+            entity.Property(e => e.TenTaiKhoan).HasMaxLength(1000);
 
             entity.HasOne(d => d.IdNganHangNavigation).WithMany(p => p.BankAccounts)
                 .HasForeignKey(d => d.IdNganHang)
@@ -116,6 +118,7 @@ public partial class AccountingManagementContext : DbContext
             entity.ToTable("BankLog");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.CreateDate).HasColumnType("datetime");
             entity.Property(e => e.MaTaiKhoan)
                 .HasMaxLength(1000)
                 .IsUnicode(false)
@@ -259,26 +262,33 @@ public partial class AccountingManagementContext : DbContext
 
         modelBuilder.Entity<PhieuNhap>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("PhieuNhap");
+            entity.HasKey(e => e.MaPhieu).HasName("PK__PhieuNha__2660BFE0EA9043A9");
 
+            entity.ToTable("PhieuNhap");
+
+            entity.Property(e => e.MaPhieu)
+                .HasMaxLength(1000)
+                .IsUnicode(false);
             entity.Property(e => e.DiaChi)
                 .HasMaxLength(1000)
                 .IsUnicode(false);
             entity.Property(e => e.DonVi)
                 .HasMaxLength(1000)
                 .IsUnicode(false);
-            entity.Property(e => e.GiamDoc).HasMaxLength(1000);
-            entity.Property(e => e.KeToanTruong).HasMaxLength(1000);
+            entity.Property(e => e.GiamDoc)
+                .HasMaxLength(1000)
+                .IsUnicode(false);
+            entity.Property(e => e.IsThanhToan).HasColumnName("isThanhToan");
+            entity.Property(e => e.KeToanTruong)
+                .HasMaxLength(1000)
+                .IsUnicode(false);
             entity.Property(e => e.MaHoaDon)
                 .HasMaxLength(1000)
                 .IsUnicode(false);
-            entity.Property(e => e.MaPhieu)
+            entity.Property(e => e.NgayLap).HasColumnType("datetime");
+            entity.Property(e => e.NguoiGiao)
                 .HasMaxLength(1000)
                 .IsUnicode(false);
-            entity.Property(e => e.NgayLap).HasColumnType("datetime");
-            entity.Property(e => e.NguoiGiao).HasMaxLength(1000);
             entity.Property(e => e.NguoiLap)
                 .HasMaxLength(1000)
                 .IsUnicode(false);
@@ -289,35 +299,49 @@ public partial class AccountingManagementContext : DbContext
             entity.Property(e => e.NoiNhap).HasMaxLength(1000);
             entity.Property(e => e.ThuKho).HasMaxLength(1000);
 
-            entity.HasOne(d => d.MaHoaDonNavigation).WithMany()
+            entity.HasOne(d => d.GiamDocNavigation).WithMany(p => p.PhieuNhapGiamDocNavigations)
+                .HasForeignKey(d => d.GiamDoc)
+                .HasConstraintName("FK__PhieuNhap__GiamD__4E53A1AA");
+
+            entity.HasOne(d => d.KeToanTruongNavigation).WithMany(p => p.PhieuNhapKeToanTruongNavigations)
+                .HasForeignKey(d => d.KeToanTruong)
+                .HasConstraintName("FK__PhieuNhap__KeToa__4F47C5E3");
+
+            entity.HasOne(d => d.MaHoaDonNavigation).WithMany(p => p.PhieuNhaps)
                 .HasForeignKey(d => d.MaHoaDon)
-                .HasConstraintName("FK__PhieuNhap__MaHoa__47DBAE45");
+                .HasConstraintName("FK__PhieuNhap__MaHoa__503BEA1C");
+
+            entity.HasOne(d => d.NguoiLapNavigation).WithMany(p => p.PhieuNhapNguoiLapNavigations)
+                .HasForeignKey(d => d.NguoiLap)
+                .HasConstraintName("FK__PhieuNhap__Nguoi__4D5F7D71");
         });
 
         modelBuilder.Entity<PhieuXuat>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("PhieuXuat");
+            entity.HasKey(e => e.MaPhieu).HasName("PK__PhieuXua__2660BFE06E3AECC4");
 
+            entity.ToTable("PhieuXuat");
+
+            entity.Property(e => e.MaPhieu)
+                .HasMaxLength(1000)
+                .IsUnicode(false);
             entity.Property(e => e.DiaChi)
                 .HasMaxLength(1000)
                 .IsUnicode(false);
             entity.Property(e => e.DonVi)
                 .HasMaxLength(1000)
                 .IsUnicode(false);
-            entity.Property(e => e.GiamDoc).HasMaxLength(1000);
-            entity.Property(e => e.IdNhanVien)
+            entity.Property(e => e.GiamDoc)
                 .HasMaxLength(1000)
                 .IsUnicode(false);
-            entity.Property(e => e.KeToanTruong).HasMaxLength(1000);
+            entity.Property(e => e.IsThanhToan).HasColumnName("isThanhToan");
+            entity.Property(e => e.KeToanTruong)
+                .HasMaxLength(1000)
+                .IsUnicode(false);
             entity.Property(e => e.LiDo)
                 .HasMaxLength(1000)
                 .IsUnicode(false);
             entity.Property(e => e.MaHoaDon)
-                .HasMaxLength(1000)
-                .IsUnicode(false);
-            entity.Property(e => e.MaPhieu)
                 .HasMaxLength(1000)
                 .IsUnicode(false);
             entity.Property(e => e.NgayLap).HasColumnType("datetime");
@@ -325,15 +349,26 @@ public partial class AccountingManagementContext : DbContext
                 .HasMaxLength(1000)
                 .IsUnicode(false);
             entity.Property(e => e.NguoiNhan).HasMaxLength(1000);
+            entity.Property(e => e.NhanVienGiao)
+                .HasMaxLength(1000)
+                .IsUnicode(false);
             entity.Property(e => e.ThuKho).HasMaxLength(1000);
 
-            entity.HasOne(d => d.IdNhanVienNavigation).WithMany()
-                .HasForeignKey(d => d.IdNhanVien)
-                .HasConstraintName("FK__PhieuXuat__IdNha__04E4BC85");
+            entity.HasOne(d => d.GiamDocNavigation).WithMany(p => p.PhieuXuatGiamDocNavigations)
+                .HasForeignKey(d => d.GiamDoc)
+                .HasConstraintName("FK__PhieuXuat__GiamD__489AC854");
 
-            entity.HasOne(d => d.MaHoaDonNavigation).WithMany()
+            entity.HasOne(d => d.KeToanTruongNavigation).WithMany(p => p.PhieuXuatKeToanTruongNavigations)
+                .HasForeignKey(d => d.KeToanTruong)
+                .HasConstraintName("FK__PhieuXuat__KeToa__498EEC8D");
+
+            entity.HasOne(d => d.MaHoaDonNavigation).WithMany(p => p.PhieuXuats)
                 .HasForeignKey(d => d.MaHoaDon)
-                .HasConstraintName("FK__PhieuXuat__MaHoa__05D8E0BE");
+                .HasConstraintName("FK__PhieuXuat__MaHoa__4A8310C6");
+
+            entity.HasOne(d => d.NguoiLapNavigation).WithMany(p => p.PhieuXuatNguoiLapNavigations)
+                .HasForeignKey(d => d.NguoiLap)
+                .HasConstraintName("FK__PhieuXuat__Nguoi__47A6A41B");
         });
 
         modelBuilder.Entity<Product>(entity =>

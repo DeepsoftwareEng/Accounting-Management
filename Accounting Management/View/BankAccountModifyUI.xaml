@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Accounting_Management.View"
              mc:Ignorable="d" 
-             d:DesignHeight="9" d:DesignWidth="10"
+             d:DesignHeight="900" d:DesignWidth="1000"
              Background="White">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -38,7 +38,8 @@
             </Viewbox>
             <TextBox Grid.Row="2"
                      Background="#D9D9D9"
-                     Padding="0 5 0 0">
+                     Padding="0 5 0 0"
+                     x:Name="SoTaiKhoanTxb">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -51,7 +52,8 @@
             </Viewbox>
             <TextBox Grid.Row="4"
                      Background="#D9D9D9"
-                     Padding="0 5 0 0">
+                     Padding="0 5 0 0"
+                     x:Name="TenTaiKhoanTxb">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -62,21 +64,18 @@
                      HorizontalAlignment="Left">
                 <TextBlock Text="Loại tài khoản"/>
             </Viewbox>
-            <TextBox Grid.Row="6"
+            <ComboBox Grid.Row="6"
                      Background="#D9D9D9"
-                     Padding="0 5 0 0">
-                <TextBox.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </TextBox.Resources>
-            </TextBox>
+                     Padding="0 5 0 0"
+                     x:Name="AccountTypeCbb">
+            </ComboBox>
             <Viewbox Grid.Row="7"
                      HorizontalAlignment="Left">
                 <TextBlock Text="Ngân hàng"/>
             </Viewbox>
             <ComboBox Grid.Row="8"
-                      Background="#D9D9D9">
+                      Background="#D9D9D9"
+                      x:Name="BankCbb">
             </ComboBox>
             <Viewbox Grid.Row="9"
                      HorizontalAlignment="Left">
@@ -84,7 +83,8 @@
             </Viewbox>
             <TextBox Grid.Row="10"
                      Background="#D9D9D9"
-                     Padding="0 5 0 0">
+                     Padding="0 5 0 0"
+                     x:Name="NoTxb">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -97,7 +97,8 @@
             </Viewbox>
             <TextBox Grid.Row="12"
                      Background="#D9D9D9"
-                     Padding="0 5 0 0">
+                     Padding="0 5 0 0"
+                     x:Name="HienCoTxb">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -133,7 +134,8 @@
                         FontWeight="Bold"
                         Foreground="White"
                         FontSize="20"
-                        BorderThickness="0">
+                        BorderThickness="0"
+                        x:Name="SaveBtn">
                     <Viewbox Margin="5 5 5 5">
                         <TextBlock Text="Lưu"
                                    FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"></TextBlock>

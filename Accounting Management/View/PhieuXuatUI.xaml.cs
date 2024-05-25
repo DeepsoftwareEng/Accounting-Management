@@ -24,5 +24,19 @@ namespace Accounting_Management.View
         {
             InitializeComponent();
         }
+        public void Reset()
+        {
+            CompanyTxb.Clear();
+            ContentTxb.Clear();
+            DiaChiTxb.Clear();
+            NguoiGiaoTxb.Clear();
+            NguoiNhanTxb.Clear();
+            ThuKhoTxb.Clear();
+            TongTxb.Text = "Tổng: ";
+            GiamDocCbb.SelectedIndex = 0;
+            InvoiceCbb.SelectedIndex = 0;
+            KeToanTruongCbb.SelectedIndex = 0;
+            NguoiLapCbb.SelectedIndex = 0;
+        }
     }
 }

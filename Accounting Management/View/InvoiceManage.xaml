@@ -34,7 +34,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBox Margin="10 0 0 0"
-                 Background="#D9D9D9">
+                 Background="#D9D9D9"
+                     x:Name="FilterTxt">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -45,7 +46,8 @@
                 Background="#47A7FF"
                 Foreground="White"
                 FontWeight="Bold"
-                FontSize="20">
+                FontSize="20"
+                    Click="SearchBtn_Click">
                 <Viewbox Margin="5 5 5 5">
                     <TextBlock Text="Tìm"
                                FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"></TextBlock>
@@ -75,6 +77,7 @@
         </Grid>
         <DataGrid Grid.Row="3" Margin="10 0 10 0"
           Grid.ColumnSpan="2"
+                  IsReadOnly="True"
                   x:Name="InvoiceGrid">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="STT" Width="*" Binding="{Binding STT}">
@@ -133,7 +136,7 @@
                         </Style>
                     </DataGridColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Đơn vị bán"  Width="4.4*" Binding="{Binding DonViban}">
+                <DataGridTextColumn Header="Đơn vị bán"  Width="4.4*" Binding="{Binding DonViBan}">
                     <DataGridColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="12"/>
