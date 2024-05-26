@@ -119,7 +119,7 @@ namespace Accounting_Management.View
 
                     foreach (var item in ProdGrid.Items)
                     {
-                        for (int col = 0; col < ProdGrid.Columns.Count; col++)
+                        for (int col = 0; col < ProdGrid.Columns.Count / 2; col++)
                         {
                             TextBlock Value = ProdGrid.Columns[col].GetCellContent(item) as TextBlock;
                             cell = sheet.Cell(rowWrite, col + 1);
