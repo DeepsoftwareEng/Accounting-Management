@@ -532,5 +532,13 @@ namespace Accounting_Management.View
             }
 
         }
+        private void ViewInvoice(object sender, RoutedEventArgs e)
+        {
+            var selected = InvoiceGrid.SelectedItem;
+            dynamic choosenNote = selected;
+            string Id = choosenNote.MaHoaDon;
+            ViewInvoice viewInvoice = new ViewInvoice(Id);
+            viewInvoice.Show();
+        }
     }
 }

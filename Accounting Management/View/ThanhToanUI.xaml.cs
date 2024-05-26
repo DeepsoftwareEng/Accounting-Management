@@ -1,4 +1,5 @@
 ﻿using Accounting_Management.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -41,11 +42,11 @@ namespace Accounting_Management.View
             dynamic taikhoans;
             if (Type == "IN")
             {
-               taikhoans = dbcontext.BankAccounts.Where(c => c.LoaiTaiKhoan == "IN").ToList();
+               taikhoans = dbcontext.BankAccounts.Where(c => c.LoaiTaiKhoan == "IN").AsNoTracking().ToList();
             }
             else
             {
-                taikhoans = dbcontext.BankAccounts.Where(c => c.LoaiTaiKhoan == "OUT").ToList();
+                taikhoans = dbcontext.BankAccounts.Where(c => c.LoaiTaiKhoan == "OUT").AsNoTracking().ToList();
             }
             BankAccountCbb.SelectedValuePath = "MaTaiKhoan";
             BankAccountCbb.DisplayMemberPath = "TenTaiKhoan";
@@ -62,18 +63,18 @@ namespace Accounting_Management.View
             string selectedAccount = BankAccountCbb.SelectedValue.ToString();
             if(Type == "IN")
             {
-                var note = dbcontext.PhieuNhaps.Where(c => c.MaPhieu ==  MaPhieu).FirstOrDefault();
+                var note = dbcontext.PhieuNhaps.Where(c => c.MaPhieu ==  MaPhieu).AsNoTracking().FirstOrDefault();
                 note.IsThanhToan = 1;
                 dbcontext.PhieuNhaps.Update(note);
-                var listProd = dbcontext.ProductInvoices.Where(c => c.MaHoaDon == note.MaHoaDon).ToList();
+                var listProd = dbcontext.ProductInvoices.Where(c => c.MaHoaDon == note.MaHoaDon).AsNoTracking().ToList();
                 foreach(var i in listProd)
                 {
-                    Product prod = dbcontext.Products.Where(c => c.MaHangHoa == i.MaHangHoa).FirstOrDefault();
+                    Product prod = dbcontext.Products.Where(c => c.MaHangHoa == i.MaHangHoa).AsNoTracking().FirstOrDefault();
                     prod.SoLuong += i.SoLuong;
-                    TongTien += (float)(i.SoLuong * prod.DonGia);
+                    TongTien -= (float)(i.SoLuong * prod.DonGia);
                     dbcontext.Update(prod);
                 }
-                var bankAccount = dbcontext.BankAccounts.Where(c => c.MaTaiKhoan == selectedAccount).FirstOrDefault();
+                var bankAccount = dbcontext.BankAccounts.Where(c => c.MaTaiKhoan == selectedAccount).AsNoTracking().FirstOrDefault();
                 bankAccount.TienNo -= TongTien;
                 dbcontext.BankAccounts.Update(bankAccount);
                 BankLog bankLog = new BankLog();
@@ -82,25 +83,25 @@ namespace Accounting_Management.View
                 bankLog.MaTaiKhoan = bankAccount.MaTaiKhoan;
                 bankLog.CreateDate = DateTime.Now;
                 dbcontext.BankLogs.Add(bankLog);
-                var invoice = dbcontext.Invoices.Where(c => c.MaHoaDon == note.MaHoaDon).FirstOrDefault();
+                var invoice = dbcontext.Invoices.Where(c => c.MaHoaDon == note.MaHoaDon).AsNoTracking().FirstOrDefault();
                 invoice.IsPayed = 1;
                 dbcontext.Invoices.Update(invoice); 
                 dbcontext.SaveChanges();
             }
             else
             {
-                var note = dbcontext.PhieuXuats.Where(c => c.MaPhieu == MaPhieu).FirstOrDefault();
+                var note = dbcontext.PhieuXuats.Where(c => c.MaPhieu == MaPhieu).AsNoTracking().FirstOrDefault();
                 note.IsThanhToan = 1;
                 dbcontext.PhieuXuats.Update(note);
-                var listProd = dbcontext.ProductInvoices.Where(c => c.MaHoaDon == note.MaHoaDon).ToList();
+                var listProd = dbcontext.ProductInvoices.Where(c => c.MaHoaDon == note.MaHoaDon).AsNoTracking().ToList();
                 foreach (var i in listProd)
                 {
-                    Product prod = dbcontext.Products.Where(c => c.MaHangHoa == i.MaHangHoa).FirstOrDefault();
+                    Product prod = dbcontext.Products.Where(c => c.MaHangHoa == i.MaHangHoa).AsNoTracking().FirstOrDefault();
                     prod.SoLuong -= i.SoLuong;
                     TongTien += (float)(i.SoLuong * prod.DonGia);
                     dbcontext.Update(prod);
                 }
-                var bankAccount = dbcontext.BankAccounts.Where(c => c.MaTaiKhoan == selectedAccount).FirstOrDefault();
+                var bankAccount = dbcontext.BankAccounts.Where(c => c.MaTaiKhoan == selectedAccount).AsNoTracking().FirstOrDefault();
                 bankAccount.HienCo += TongTien;
                 dbcontext.BankAccounts.Update(bankAccount);
                 BankLog bankLog = new BankLog();
@@ -109,7 +110,7 @@ namespace Accounting_Management.View
                 bankLog.MaTaiKhoan = bankAccount.MaTaiKhoan;
                 bankLog.CreateDate = DateTime.Now;
                 dbcontext.BankLogs.Add(bankLog);
-                var invoice = dbcontext.Invoices.Where(c => c.MaHoaDon == note.MaHoaDon).FirstOrDefault();
+                var invoice = dbcontext.Invoices.Where(c => c.MaHoaDon == note.MaHoaDon).AsNoTracking().FirstOrDefault();
                 invoice.IsPayed = 1;
                 dbcontext.Invoices.Update(invoice);
                 dbcontext.SaveChanges();

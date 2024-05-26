@@ -1,11 +1,11 @@
-﻿<Window x:Class="Accounting_Management.View.ViewNote"
+﻿<Window x:Class="Accounting_Management.View.ViewOutNote"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Accounting_Management.View"
         mc:Ignorable="d"
-        Title="Xem phiếu nhập" Height="450" Width="800">
+        Title="ViewOutNote" Height="450" Width="800">
     <Grid Margin="10 10 10 10">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -27,20 +27,17 @@
                 </Grid.RowDefinitions>
                 <Viewbox HorizontalAlignment="Left">
                     <TextBlock x:Name="ShopNameTxb"
-                               Text="CompanyName"
-                               Padding="0,4"/>
+                   Padding="0,4"/>
                 </Viewbox>
                 <Viewbox Grid.Row="1"
-                         HorizontalAlignment="Left">
+             HorizontalAlignment="Left">
                     <TextBlock x:Name="ShopAddressTxb"
-                               Text="Address"
-                               Padding="0,4"/>
+                   Padding="0,4"/>
                 </Viewbox>
                 <Viewbox Grid.Row="2"
-                         HorizontalAlignment="Left">
+             HorizontalAlignment="Left">
                     <TextBlock x:Name="ShopPhoneTxb"
-                               Text="phone"
-                               Padding="0,4"/>
+                   Padding="0,4"/>
                 </Viewbox>
             </Grid>
             <Grid Grid.Column="1">
@@ -49,9 +46,9 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Phiếu nhập kho"
-                       FontSize="32"
-                       FontWeight="Bold"/>
+                <TextBlock Text="Phiếu xuất kho"
+                           FontSize="32"
+                           FontWeight="Bold"/>
                 <Viewbox Grid.Row="1">
                     <TextBlock x:Name="DateTxb"/>
                 </Viewbox>
@@ -69,8 +66,8 @@
                     <ColumnDefinition Width="0.3*"/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="2"
-            Margin="2 2 2 2"
-            BorderThickness="0" Click="Button_Click">
+                        Margin="2 2 2 2"
+                        BorderThickness="0" Click="Button_Click">
                     <Viewbox>
                         <TextBlock Margin="0,3">Xuất</TextBlock>
                     </Viewbox>
@@ -96,32 +93,31 @@
                 <TextBlock Text="Họ tên người nhận"/>
             </Viewbox>
             <Viewbox HorizontalAlignment="Left"
-                 Grid.Row="1">
+                     Grid.Row="1">
                 <TextBlock Text="Lý do"/>
             </Viewbox>
             <Viewbox HorizontalAlignment="Left"
-                 Grid.Row="2">
-                <TextBlock Text="Nhập tại"/>
+                     Grid.Row="2">
+                <TextBlock Text="Xuất tại"/>
             </Viewbox>
             <Viewbox HorizontalAlignment="Left"
-                 Grid.Column="1">
+                     Grid.Column="1">
                 <TextBlock x:Name="NguoiNhanTxb"/>
             </Viewbox>
             <Viewbox HorizontalAlignment="Left"
-                 Grid.Column="1"
-                 Grid.Row="1">
+                     Grid.Column="1"
+                     Grid.Row="1">
                 <TextBlock x:Name="ContentTxb"/>
             </Viewbox>
             <Viewbox HorizontalAlignment="Left"
-                 Grid.Column="1"
-                 Grid.Row="2">
-                <TextBlock x:Name="OutAddressTxb"
-/>
+                     Grid.Column="1"
+                     Grid.Row="2">
+                <TextBlock x:Name="OutAddressTxb"/>
             </Viewbox>
         </Grid>
         <DataGrid Grid.Row="2"
-      Grid.Column="1"
-      x:Name="ProdGrid">
+          Grid.Column="1"
+          x:Name="ProdGrid">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã hàng"  Width="4.4*" Binding="{Binding MaHangHoa}">
                     <DataGridColumn.HeaderStyle>
@@ -191,7 +187,7 @@
                 </Viewbox>
                 <Viewbox Grid.Row="1">
                     <TextBox x:Name="NguoiNhanKyTxb"
-                             BorderThickness="0"/>
+                              BorderThickness="0"/>
                 </Viewbox>
             </Grid>
             <Grid Grid.Column="2">
@@ -204,7 +200,7 @@
                 </Viewbox>
                 <Viewbox Grid.Row="1">
                     <TextBox x:Name="ThuKhoKyTxb"
-                             BorderThickness="0"/>
+                              BorderThickness="0"/>
                 </Viewbox>
             </Grid>
             <Grid Grid.Column="3">
@@ -217,7 +213,7 @@
                 </Viewbox>
                 <Viewbox Grid.Row="1">
                     <TextBox x:Name="KeToantruongKyTxb"
-                             BorderThickness="0"/>
+                              BorderThickness="0"/>
                 </Viewbox>
             </Grid>
             <Grid Grid.Column="4">
@@ -230,7 +226,7 @@
                 </Viewbox>
                 <Viewbox Grid.Row="1">
                     <TextBox x:Name="GiamDocKyTxb"
-                             BorderThickness="0"/>
+                              BorderThickness="0"/>
                 </Viewbox>
             </Grid>
         </Grid>

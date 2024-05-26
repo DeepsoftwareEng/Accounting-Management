@@ -193,8 +193,7 @@ namespace Accounting_Management.View
             PhieuXuat.Back.Click += Back_Click;
             PhieuNhap.ChangeToPhieuXuatBtn.Click += ChangeToPhieuXuatBtn_Click;
             PhieuXuat.ChangeToPhieuNhapBtn.Click += ChangeToPhieuNhapBtn_Click;
-            PhieuNhap.PayBtn.Click += PayBtn_Click;
-            PhieuXuat.PayBtn.Click += PayBtn_Click;
+            
             PhieuNhap.SaveBtn.Click += SaveAddNote;
             PhieuXuat.SaveBtn.Click += SaveAddNote;
             isPhieuNhap = true;
@@ -376,12 +375,12 @@ namespace Accounting_Management.View
         {
             if (isPhieuNhap)
             {
-                ThanhToanUI thanhtoan = new ThanhToanUI(NoteId, "OUT");
+                ThanhToanUI thanhtoan = new ThanhToanUI(NoteId, "IN");
                 thanhtoan.Show();
             }
             else
             {
-                ThanhToanUI thanhtoan = new ThanhToanUI(NoteId, "IN");
+                ThanhToanUI thanhtoan = new ThanhToanUI(NoteId, "OUT");
                 thanhtoan.Show();
             }
         }
@@ -394,6 +393,8 @@ namespace Accounting_Management.View
             string Id = choosenNote.SoPhieu;
             PhieuNhap.PayBtn.IsEnabled = true;
             PhieuXuat.PayBtn.IsEnabled = true;
+            PhieuNhap.PayBtn.Click += PayBtn_Click;
+            PhieuXuat.PayBtn.Click += PayBtn_Click;
             if (choosenNote.Type == "Phiếu nhập")
             {
                 var note = dbcontext.PhieuNhaps.Where(c => c.MaPhieu == Id).AsNoTracking().FirstOrDefault();
@@ -423,6 +424,8 @@ namespace Accounting_Management.View
                 PhieuNhap.Back.Click += Back_Click;
                 PhieuNhap.SaveBtn.Click += SaveEditNote;
                 isPhieuNhap = true;
+                PhieuNhap.ChangeToPhieuXuatBtn.IsEnabled = false;
+                
             }
             else
             {
@@ -453,6 +456,7 @@ namespace Accounting_Management.View
                 PhieuXuat.Back.Click += Back_Click;
                 PhieuXuat.SaveBtn.Click += SaveEditNote;
                 isPhieuNhap = false;
+                PhieuXuat.ChangeToPhieuNhapBtn.IsEnabled = false;
             }
             float TongTien = 0;
             List<dynamic> product = new List<dynamic>();
@@ -553,7 +557,19 @@ namespace Accounting_Management.View
 
         private void ViewNote(object sender, RoutedEventArgs e)
         {
-
+            var selected = NoteGrid.SelectedItem;
+            dynamic choosenNote = selected;
+            string Id = choosenNote.SoPhieu;
+            if (choosenNote.Type == "Phiếu nhập")
+            {
+                ViewNote viewNote = new ViewNote(Id);
+                viewNote.Show();
+            }
+            else
+            {
+                ViewOutNote viewNote = new ViewOutNote(Id);
+                viewNote.Show();
+            }
         }
 
         #region Paginator

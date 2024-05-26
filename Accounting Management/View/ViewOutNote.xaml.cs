@@ -1,6 +1,6 @@
 ﻿using Accounting_Management.Models;
 using ClosedXML.Excel;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -19,17 +19,17 @@ using System.Windows.Shapes;
 namespace Accounting_Management.View
 {
     /// <summary>
-    /// Interaction logic for ViewNote.xaml
+    /// Interaction logic for ViewOutNote.xaml
     /// </summary>
-    public partial class ViewNote : Window
+    public partial class ViewOutNote : Window
     {
         AccountingManagementContext dbcontext = new AccountingManagementContext();
         public string MaPhieu { get; set; }
-        public ViewNote()
+        public ViewOutNote()
         {
             InitializeComponent();
         }
-        public ViewNote(string maPhieu)
+        public ViewOutNote(string maPhieu)
         {
             InitializeComponent();
             MaPhieu = maPhieu;
@@ -37,7 +37,7 @@ namespace Accounting_Management.View
         }
         private void LoadData()
         {
-            var phieuXuat = dbcontext.PhieuNhaps.Where(c => c.MaPhieu == MaPhieu).FirstOrDefault();
+            var phieuXuat = dbcontext.PhieuXuats.Where(c => c.MaPhieu == MaPhieu).FirstOrDefault();
             var shop = dbcontext.Shops.FirstOrDefault();
             var prod = dbcontext.ProductInvoices.Where(c => c.MaHoaDon == phieuXuat.MaHoaDon).ToList();
             var ketoantruong = dbcontext.Employees.Where(c => c.MaNhanVien == phieuXuat.KeToanTruong).FirstOrDefault();
@@ -61,10 +61,10 @@ namespace Accounting_Management.View
             ShopAddressTxb.Text = shop.MaSoThue;
             ShopNameTxb.Text = shop.TenCongTy;
             DateTime t = (DateTime)phieuXuat.NgayLap;
-            DateTxb.Text = "Ngày " + t.Day + " tháng " + t.Month + " năm " + t.Year;
+            DateTxb.Text = "Ngày "+ t.Day + " tháng "+t.Month + " năm "+ t.Year;
             MaPhieuTxb.Text = phieuXuat.MaPhieu;
             NguoiNhanTxb.Text = phieuXuat.NguoiNhan;
-            ContentTxb.Text = phieuXuat.NoiDung;
+            ContentTxb.Text = phieuXuat.LiDo;
             NguoiLapKyTxb.Text = nguoiLap.TenNhanVien;
             NguoiNhanKyTxb.Text = phieuXuat.NguoiNhan;
             ThuKhoKyTxb.Text = phieuXuat.ThuKho;
@@ -77,42 +77,36 @@ namespace Accounting_Management.View
             SaveFileDialog saveDialog = new SaveFileDialog();
             saveDialog.DefaultExt = ".xlsx";
             saveDialog.Filter = "Excel Files|*xlsx;*xls;*xlsm";
-            saveDialog.FileName = "Phiếu nhập.xlsx";
+            saveDialog.FileName = "Phiếu xuất.xlsx";
             if (saveDialog.ShowDialog() == true)
             {
                 try
                 {
                     var workbook = new XLWorkbook();
-                    var sheet = workbook.Worksheets.Add("Phiếu nhập");
-
+                    var sheet = workbook.Worksheets.Add("Phiếu xuất");
                     int rowWrite = 4;
                     IXLCell cell;
                     #region Header
                     cell = sheet.Cell(1, 1);
                     cell.Value = "Tên người nhận";
-                    cell.Style.Font.Bold = true;
                     cell.Style.Font.FontSize = 14;
                     cell = sheet.Cell(2, 1);
                     cell.Value = "Lý do";
-                    cell.Style.Font.Bold = true;
                     cell.Style.Font.FontSize = 14;
                     cell = sheet.Cell(3, 1);
                     cell.Value = "Nhập tại";
-                    cell.Style.Font.Bold = true;
                     cell.Style.Font.FontSize = 14;
                     cell = sheet.Cell(1, 2);
                     cell.Value = NguoiNhanTxb.Text;
-                    cell.Style.Font.Bold = true;
                     cell.Style.Font.FontSize = 14;
                     cell = sheet.Cell(2, 2);
                     cell.Value = ContentTxb.Text;
-                    cell.Style.Font.Bold = true;
                     cell.Style.Font.FontSize = 14;
                     cell = sheet.Cell(3, 2);
                     cell.Value = "";
-                    cell.Style.Font.Bold = true;
                     cell.Style.Font.FontSize = 14;
                     #endregion
+                    rowWrite++;
                     for (int col = 0; col < ProdGrid.Columns.Count / 2; col++)
                     {
                         cell = sheet.Cell(rowWrite, col + 1);
@@ -125,7 +119,7 @@ namespace Accounting_Management.View
 
                     foreach (var item in ProdGrid.Items)
                     {
-                        for (int col = 0; col < ProdGrid.Columns.Count / 2; col++)
+                        for (int col = 0; col < ProdGrid.Columns.Count; col++)
                         {
                             TextBlock Value = ProdGrid.Columns[col].GetCellContent(item) as TextBlock;
                             cell = sheet.Cell(rowWrite, col + 1);
