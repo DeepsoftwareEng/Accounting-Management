@@ -25,6 +25,7 @@ namespace Accounting_Management.View
     {
         AccountingManagementContext dbcontext = new AccountingManagementContext();
         public string MaPhieu { get; set; }
+        string TongTien = "";
         public ViewNote()
         {
             InitializeComponent();
@@ -44,6 +45,7 @@ namespace Accounting_Management.View
             var giamdoc = dbcontext.Employees.Where(c => c.MaNhanVien == phieuXuat.GiamDoc).FirstOrDefault();
             var nguoiLap = dbcontext.Employees.Where(c => c.MaNhanVien == phieuXuat.NguoiLap).FirstOrDefault();
             List<dynamic> prodSource = new List<dynamic>();
+            float tongtien = 0;
             foreach (var i in prod)
             {
                 var temp = dbcontext.Products.Where(c => c.MaHangHoa == i.MaHangHoa).FirstOrDefault();
@@ -56,7 +58,10 @@ namespace Accounting_Management.View
                     ThanhTien = i.SoLuong * temp.DonGia
                 };
                 prodSource.Add(item);
+                float thanhtien = (float)(i.SoLuong * temp.DonGia);
+                tongtien += thanhtien;
             }
+            TongTien = tongtien.ToString();
             ProdGrid.ItemsSource = prodSource;
             ShopAddressTxb.Text = shop.MaSoThue;
             ShopNameTxb.Text = shop.TenCongTy;
@@ -88,29 +93,32 @@ namespace Accounting_Management.View
                     int rowWrite = 4;
                     IXLCell cell;
                     #region Header
-                    cell = sheet.Cell(1, 1);
-                    cell.Value = "Tên người nhận";
-                    cell.Style.Font.Bold = true;
+                    cell = sheet.Cell(2, ProdGrid.Columns.Count / 4);
+                    cell.Value = "Phiếu xuất";
                     cell.Style.Font.FontSize = 14;
                     cell = sheet.Cell(2, 1);
-                    cell.Value = "Lý do";
-                    cell.Style.Font.Bold = true;
+                    cell.Value = "Mã phiếu";
                     cell.Style.Font.FontSize = 14;
                     cell = sheet.Cell(3, 1);
-                    cell.Value = "Nhập tại";
-                    cell.Style.Font.Bold = true;
+                    cell.Value = "Tên người nhận";
                     cell.Style.Font.FontSize = 14;
-                    cell = sheet.Cell(1, 2);
-                    cell.Value = NguoiNhanTxb.Text;
-                    cell.Style.Font.Bold = true;
+                    cell = sheet.Cell(4, 1);
+                    cell.Value = "Lý do";
+                    cell.Style.Font.FontSize = 14;
+                    cell = sheet.Cell(5, 1);
+                    cell.Value = "Nhập tại";
                     cell.Style.Font.FontSize = 14;
                     cell = sheet.Cell(2, 2);
-                    cell.Value = ContentTxb.Text;
-                    cell.Style.Font.Bold = true;
+                    cell.Value = MaPhieuTxb.Text;
                     cell.Style.Font.FontSize = 14;
                     cell = sheet.Cell(3, 2);
+                    cell.Value = NguoiNhanTxb.Text;
+                    cell.Style.Font.FontSize = 14;
+                    cell = sheet.Cell(4, 2);
+                    cell.Value = ContentTxb.Text;
+                    cell.Style.Font.FontSize = 14;
+                    cell = sheet.Cell(5, 2);
                     cell.Value = "";
-                    cell.Style.Font.Bold = true;
                     cell.Style.Font.FontSize = 14;
                     #endregion
                     for (int col = 0; col < ProdGrid.Columns.Count / 2; col++)
@@ -136,6 +144,17 @@ namespace Accounting_Management.View
                         rowWrite++;
                     }
                     #region Footer
+                    cell = sheet.Cell(rowWrite, ProdGrid.Columns.Count / 4);
+                    cell.Value = "Tổng tiền";
+                    cell.Style.Font.FontSize = 14;
+                    cell.Style.Font.FontColor = XLColor.Red;
+                    cell.Style.Font.Bold = true;
+                    cell = sheet.Cell(rowWrite, ProdGrid.Columns.Count / 4 + 1);
+                    cell.Value = TongTien;
+                    cell.Style.Font.FontSize = 14;
+                    cell.Style.Font.FontColor = XLColor.Red;
+                    cell.Style.Font.Bold = true;
+                    rowWrite++;
                     cell = sheet.Cell(rowWrite, 1);
                     cell.Value = "Người lập";
                     cell.Style.Font.FontSize = 14;
