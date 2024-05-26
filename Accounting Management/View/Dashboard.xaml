@@ -45,6 +45,7 @@
                         </Grid.ColumnDefinitions>
                         <Viewbox VerticalAlignment="Center">
                             <TextBlock FontWeight="Bold"
+                                       x:Name="LoiNhuanTxb"
                                        Text="1000K"
                                        FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Viewbox>
@@ -69,6 +70,7 @@
                         <Viewbox VerticalAlignment="Center">
                             <TextBlock FontWeight="Bold"
                                        Text="250"
+                                       x:Name="KhachHangTxb"
                                        FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Viewbox>
                         <Viewbox Grid.Column="3"
@@ -91,6 +93,7 @@
                         </Grid.ColumnDefinitions>
                         <Viewbox VerticalAlignment="Center">
                             <TextBlock FontWeight="Bold"
+                                       x:Name="ChiTieuTxb"
                                        Text="2000K"
                                        FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                         </Viewbox>
@@ -135,6 +138,7 @@
                          Grid.Column="0"
                          HorizontalAlignment="Left">
                     <TextBlock Text="Trung bình: 1000K"
+                               x:Name="AvarageLoiNhuan"
                                Margin="20 0 0 0"
                                FontWeight="Bold"
                                FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
@@ -143,6 +147,7 @@
                          Grid.Column="0"
                          HorizontalAlignment="Left">
                     <TextBlock Text="Hiện tại: 300K"
+                               x:Name="CurrenMonthTxb"
                                Margin="20 0 0 0"
                                FontWeight="Bold"
                                FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
@@ -151,6 +156,7 @@
                          Grid.Column="0"
                          HorizontalAlignment="Left">
                     <TextBlock Text="Tháng trước: 300k"
+                               x:Name="PreviousMonthxb"
                                Margin="20 0 0 0"
                                FontWeight="Bold"
                                FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
@@ -160,6 +166,7 @@
                          HorizontalAlignment="Left">
                     <TextBlock Text="Tăng trưởng: 30%"
                                Margin="20 0 0 0"
+                               x:Name="GrowthTxb"
                                FontWeight="Bold"
                                FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
                 </Viewbox>
@@ -174,6 +181,7 @@
                          Grid.Column="1"
                          HorizontalAlignment="Left">
                     <TextBlock Text="Trung bình: 1000K"
+                               x:Name="AvarageChiTieuTxb"
                                Margin="20 0 0 0"
                                FontWeight="Bold"
                                FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
@@ -182,6 +190,7 @@
                          Grid.Column="1"
                          HorizontalAlignment="Left">
                     <TextBlock Text="Hiện tại: 300K"
+                               x:Name="CurrentChiTieuTxb"
                                Margin="20 0 0 0"
                                FontWeight="Bold"
                                FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
@@ -190,6 +199,7 @@
                          Grid.Column="1"
                          HorizontalAlignment="Left">
                     <TextBlock Text="Tháng trước: 200K"
+                               x:Name="PreviousMonthChiTieuTxb"
                                Margin="20 0 0 0"
                                FontWeight="Bold"
                                FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
@@ -198,6 +208,7 @@
                          Grid.Column="1"
                          HorizontalAlignment="Left">
                     <TextBlock Text="Hóa đơn tồn đọng: 30"
+                               x:Name="RemainTxb"
                                Margin="20 0 0 0"
                                FontWeight="Bold"
                                FontFamily="/Assets/Font/Inter-VariableFont_slnt,wght.ttf"/>
@@ -210,11 +221,25 @@
                 </Grid.ColumnDefinitions>
                 <chart1:CartesianChart x:Name="LoiNhuanChart"
                                Grid.Column="0"
+                                       Series="{Binding LoiNhuanCollection}"
                                LegendLocation="Right" Margin="10,0,10,0">
+                    <chart1:CartesianChart.AxisX>
+                        <chart1:Axis Title="Tháng" Labels="{Binding Labels}"/>
+                    </chart1:CartesianChart.AxisX>
+                    <chart1:CartesianChart.AxisY>
+                        <chart1:Axis Title="Biên độ" Labels="{Binding Values}"/>
+                    </chart1:CartesianChart.AxisY>
                 </chart1:CartesianChart>
                 <chart1:CartesianChart x:Name="ChiTieuChart"
+                                       Series="{Binding ChiTieuCollection}"
                                Grid.Column="1"
                                LegendLocation="Right" Margin="10,0,10,0">
+                    <chart1:CartesianChart.AxisX>
+                        <chart1:Axis Title="Tháng" Labels="{Binding Labels}"/>
+                    </chart1:CartesianChart.AxisX>
+                    <chart1:CartesianChart.AxisY>
+                        <chart1:Axis Title="Biên độ" Labels="{Binding Values}"/>
+                    </chart1:CartesianChart.AxisY>
                 </chart1:CartesianChart>
             </Grid>
         </Grid>

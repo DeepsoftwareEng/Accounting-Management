@@ -64,7 +64,7 @@
                 </Viewbox>
                 <Viewbox HorizontalAlignment="Left"
                      Grid.Row="5">
-                    <TextBlock Text="Kế toán trường"/>
+                    <TextBlock Text="Kế toán trưởng"/>
                 </Viewbox>
                 <Viewbox HorizontalAlignment="Left"
                      Grid.Row="6">

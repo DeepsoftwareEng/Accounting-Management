@@ -303,6 +303,7 @@ namespace Accounting_Management.View
                 note.MaHoaDon = PhieuNhap.InvoiceCbb.SelectedValue.ToString();
                 note.NguoiGiao = PhieuNhap.NguoiGiaoTxb.Text;
                 note.NguoiNhan = PhieuNhap.NguoiNhanTxb.Text;
+                note.IsThanhToan = 0;
                 dbcontext.Entry(note).State = EntityState.Detached;
                 try
                 {
@@ -347,6 +348,8 @@ namespace Accounting_Management.View
                 dbcontext.Entry(note).State = EntityState.Detached;
                 note.NhanVienGiao = PhieuXuat.NguoiGiaoTxb.Text;
                 note.MaHoaDon = PhieuXuat.InvoiceCbb.SelectedValue.ToString();
+                note.NguoiNhan = PhieuXuat.NguoiNhanTxb.Text;
+                note.IsThanhToan = 0;
                 try
                 {
                     dbcontext.Set<PhieuXuat>().Add(note);
@@ -385,6 +388,7 @@ namespace Accounting_Management.View
         #region Edit
         private void EditNote(object sender, RoutedEventArgs e)
         {
+            string maHoaDon = "";
             var selected = NoteGrid.SelectedItem;
             dynamic choosenNote = selected;
             string Id = choosenNote.SoPhieu;
@@ -410,8 +414,8 @@ namespace Accounting_Management.View
                 PhieuNhap.InvoiceCbb.SelectedValue = note.MaHoaDon;
                 PhieuNhap.CreateByCbb.SelectedValue = note.NguoiLap;
                 PhieuNhap.KeToanTruongCbb.SelectedValue = note.KeToanTruong;
+                maHoaDon= note.MaHoaDon;
                 note = null;
-                choosenNote = null;
                 Id = null;
                 PhieuNhap.IsEnabled = true;
                 PhieuNhap.Opacity = 1;
@@ -434,12 +438,14 @@ namespace Accounting_Management.View
                 PhieuXuat.DiaChiTxb.Text = note.DiaChi;
                 PhieuXuat.NguoiGiaoTxb.Text = note.NhanVienGiao;
                 PhieuXuat.NguoiNhanTxb.Text = note.NguoiNhan;
+                PhieuXuat.ThuKhoTxb.Text = note.ThuKho;
+                PhieuXuat.NguoiNhanTxb.Text = note.NguoiNhan;
                 PhieuXuat.GiamDocCbb.SelectedValue = note.GiamDoc;
                 PhieuXuat.InvoiceCbb.SelectedValue = note.MaHoaDon;
                 PhieuXuat.NguoiLapCbb.SelectedValue = note.NguoiLap;
                 PhieuNhap.KeToanTruongCbb.SelectedValue = note.KeToanTruong;
+                maHoaDon = note.MaHoaDon;
                 note = null;
-                choosenNote = null;
                 Id = null;
                 PhieuXuat.IsEnabled = true;
                 PhieuXuat.Opacity = 1;
@@ -448,7 +454,37 @@ namespace Accounting_Management.View
                 PhieuXuat.SaveBtn.Click += SaveEditNote;
                 isPhieuNhap = false;
             }
-            
+            float TongTien = 0;
+            List<dynamic> product = new List<dynamic>();
+            var productInvoice = dbcontext.ProductInvoices.Where(c => c.MaHoaDon == maHoaDon).AsNoTracking().ToList();
+            foreach (var i in productInvoice)
+            {
+                Product prod = dbcontext.Products.Where(c => c.MaHangHoa == i.MaHangHoa).AsNoTracking().FirstOrDefault();
+                float thanhtien = (float)(i.SoLuong * prod.DonGia);
+                var temp = new
+                {
+                    MaHangHoa = prod.MaHangHoa,
+                    SoLuong = i.SoLuong,
+                    TenHangHoa = prod.TenHangHoa,
+                    DonGia = prod.DonGia,
+                    ThanhTien = thanhtien
+                };
+                TongTien += thanhtien;
+                product.Add(temp);
+            }
+            if (choosenNote.Type == "Phiếu nhập")
+            {
+                PhieuNhap.NhapProductGrid.AutoGenerateColumns = false;
+                PhieuNhap.NhapProductGrid.ItemsSource = product;
+                PhieuNhap.TongTxb.Text = "Tổng: " + TongTien;
+            }
+            else
+            {
+                PhieuXuat.XuatProductGrid.AutoGenerateColumns = false;
+                PhieuXuat.XuatProductGrid.ItemsSource = product;
+                PhieuXuat.TongTxb.Text = "Tổng: " + TongTien;
+            }
+            choosenNote = null;
         }
         private void SaveEditNote(object sender, RoutedEventArgs e)
         {
@@ -514,7 +550,12 @@ namespace Accounting_Management.View
             PhieuXuat.Visibility = Visibility.Hidden;
         }
         #endregion
-        
+
+        private void ViewNote(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         #region Paginator
         private void Back_Click(object sender, RoutedEventArgs e)
         {
