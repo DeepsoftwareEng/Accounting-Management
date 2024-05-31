@@ -146,7 +146,7 @@ namespace Accounting_Management.View
         {
             var selected = ProductGrid.SelectedItem;
             dynamic choosenCustomer = selected;
-            string Id = choosenCustomer.MaKhachHang;
+            string Id = choosenCustomer.MaHangHoa;
             var product = dbcontext.Products.Where(c => c.MaHangHoa == Id).AsNoTracking().FirstOrDefault();
             ProductId = product.MaHangHoa;
             Drawer.ProductNameTxb.Text = product.TenHangHoa;
